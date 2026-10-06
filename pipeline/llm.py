@@ -254,3 +254,66 @@ def call_with_backoff(provider, system, user, schema, schema_name, max_transient
         if res.ok or not res.transient or attempt > max_transient_retries:
             return res, attempt
         time.sleep(base_delay * (2 ** (attempt - 1)) * (0.5 + random.random()))
+
+
+class RoleCaller:
+    """Logged, budgeted model calls for the verify / group / memo roles (enrich has its own batch logic).
+
+    Every attempt goes to <run_dir>/calls.jsonl with the role, the review IDs actually sent, usage and cost.
+    """
+
+    def __init__(self, run_dir, role, provider, model, effort, max_output_tokens, budget_usd, config_label,
+                 run_id=None, max_transient_retries=4):
+        load_env()
+        from .common import append_jsonl  # local import keeps llm.py import-light
+        self._append = append_jsonl
+        self.run_dir = __import__("pathlib").Path(run_dir)
+        self.role, self.model, self.effort = role, model, effort
+        self.provider = make_provider(provider, model, effort, max_output_tokens)
+        self.max_output_tokens = max_output_tokens
+        self.rates = load_rates()
+        self.ledger = SpendLedger(budget_usd)
+        self.config_label = config_label
+        self.run_id = run_id or time.strftime("%Y%m%dT%H%M%S") + "-" + uuid.uuid4().hex[:6]
+        self.max_transient_retries = max_transient_retries
+        self.calls = []
+
+    def call(self, system, user, schema, schema_name, review_ids=(), inputs_note=""):
+        est_in = (len(system) + len(user)) // 3 + 50
+        worst = usage_cost(self.rates, self.provider.name, self.model, self.provider.tier,
+                           {"input_tokens": est_in, "output_tokens": self.max_output_tokens}) or 0.0
+        reservation = self.ledger.reserve(worst * (self.max_transient_retries + 1))
+        spent = 0.0
+        records = []
+
+        def on_attempt(res, attempt):
+            records.append((res, attempt))
+
+        res, _ = call_with_backoff(self.provider, system, user, schema, schema_name, self.max_transient_retries,
+                                   on_attempt=on_attempt)
+        parsed, parse_error = None, None
+        if res.ok:
+            try:
+                parsed = json.loads(res.text)
+            except ValueError as e:
+                parse_error = f"malformed_output: {e}"
+        for r, attempt in records:
+            cost = usage_cost(self.rates, self.provider.name, self.model, self.provider.tier, r.usage) if r.usage else 0.0
+            spent += worst if cost is None else cost
+            failed = (not r.ok) or (r is res and parse_error is not None)
+            rec = {"request_id": r.request_id, "role": self.role, "review_ids": list(review_ids), "model": self.model,
+                   "provider": self.provider.name, "effort": self.effort, "tier": self.provider.tier,
+                   "phase": self.role, "outcome": "failed" if failed else "succeeded",
+                   "label_config": self.config_label,
+                   "input_tokens": int(r.usage.get("input_tokens", 0) or 0),
+                   "cached_input_tokens": int(r.usage.get("cached_input_tokens", 0) or 0),
+                   "output_tokens": int(r.usage.get("output_tokens", 0) or 0),
+                   "reasoning_tokens": int(r.usage.get("reasoning_tokens", 0) or 0),
+                   "local_compute_s": r.usage.get("local_compute_s"), "cost_usd": cost,
+                   "latency_s": round(r.latency_s, 3), "attempt": attempt,
+                   "error": r.error or (parse_error if r is res else None) or None,
+                   "inputs": inputs_note or None, "run_id": self.run_id, "ts": time.strftime("%Y-%m-%dT%H:%M:%S%z")}
+            self._append(self.run_dir / "calls.jsonl", rec)
+            self.calls.append(rec)
+        self.ledger.settle(reservation, spent)
+        return parsed, res

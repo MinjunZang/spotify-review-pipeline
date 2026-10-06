@@ -1,0 +1,43 @@
+{
+  "check": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "passed": true,
+    "problems": []
+  },
+  "cited_claim_ids": [
+    "A002",
+    "A004",
+    "A010",
+    "A031",
+    "A032",
+    "C001",
+    "C003",
+    "C004",
+    "C008",
+    "C013",
+    "C021",
+    "C024",
+    "C040"
+  ],
+  "cited_issue_ids": [
+    "access.login_failure",
+    "playback.playback_stops_or_skips",
+    "usability.ads",
+    "usability.library_playlist_management"
+  ],
+  "cited_review_ids": [
+    "031cc9c5-33ba-46b2-af70-e6d6c2a2bc48",
+    "b070f47b-42fd-488c-81cd-d164fd688c76"
+  ],
+  "generated_at": "2026-10-06T11:50:52-0700",
+  "headline": "Focus on Usability: Eliminate disruptive ads and fix core playlist functionality.",
+  "memo_config": "gemma4:e4b|effort=low|memo_v1@f1f824fe4b3e",
+  "memo_markdown": "## Recommendation\nProduct effort must prioritize **Usability**. The highest priority issue is the disruptive nature of advertisements, which significantly degrades the core listening experience. We recommend immediate focus on fixing `usability.ads` and addressing the functionality gap in `usability.library_playlist_management`.\n\n## Evidence\nUsability is the most critical area, accounting for 40.0% of complaints [A004] and having a total severity sum of 23 [A002].\n\n1. **Excessive and disruptive advertisements (`usability.ads`):** This is the top issue, with a priority score of 18 [C004]. It has 6 complaints [C001] and a mean severity of 3.000000 [C003]. Users report that ads are so disruptive they prevent listening entirely, as seen in review `031cc9c5-33ba-46b2-af70-e6d6c2a2bc48` (\"IT IS FLOODED WITH ADS MAN and now it doesn't even play songs\").\n2. **Playlist feature failure (`usability.library_playlist_management`):** This issue has a priority score of 3 [C040], indicating that the feature fails to play added songs, frustrating users like those in review `b070f47b-42fd-488c-81cd-d164fd688c76`.\n\n## Alternatives considered\nWhile other areas show high severity, their overall impact is lower:\n*   **Playback:** This area has a high mean severity of 3.250000 [A010] and a priority score of 7 [C008] (for `playback.playback_stops_or_skips`), but the overall complaint volume is lower than Usability.\n*   **Access:** Although `access.login_failure` has the highest mean severity (4.000000 [A031]), it only accounts for 5.0% of complaints [A032] and has a low complaint count of 1 [C013].\n*   **Billing/Support:** This area has a low priority score of 3 [C024] and low complaint volume (1 [C021]).\n\n## Limitations\nThe analysis is limited by several factors: the data consists of self-selected public reviews, not a representative customer population. Furthermore, cancellation language is expressed intent in text, not observed churn. The trend analysis excludes the first and last months of the review window [limitations].",
+  "pack_sha256": "547974b27ca7e58cd1501af371c6badfac734341cb9b106292afd33926f3938a",
+  "priority_area": "usability"
+}

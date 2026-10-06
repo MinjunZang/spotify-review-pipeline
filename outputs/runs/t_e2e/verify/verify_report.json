@@ -1,0 +1,36 @@
+{
+  "agreement": {
+    "compared": 10,
+    "flagged_rate": 0.0,
+    "intent_rate": 1.0,
+    "severity_exact_rate": 0.8,
+    "severity_mae": 0.2,
+    "severity_within1_rate": 1.0,
+    "topic_rate": 1.0
+  },
+  "declared_sample_size": 10,
+  "disagreement_count": 0,
+  "enrich_records_available": 50,
+  "generated_at": "2026-10-06T11:50:59-0700",
+  "planted_error_test": {
+    "cases": [
+      {
+        "original_intent": "praise",
+        "original_topic": "other",
+        "planted_intent": "complaint",
+        "planted_topic": "usability",
+        "review_id": "4596c11a-328b-4e1f-b901-75d09aaeb18a"
+      }
+    ],
+    "detected": 1.0,
+    "note": "Copies of sampled enriched labels with deliberately wrong topic+intent; detected = verifier disagrees. Not part of any business output.",
+    "planted": 1,
+    "synthetic": true
+  },
+  "sample_seed": "verify-seed-v1",
+  "stop_reason": "complete",
+  "verified": 10,
+  "verify_calls": 0,
+  "verify_config": "gemma4:e4b|effort=none|verify_v1@ec6d869e3ca7",
+  "verify_cost_usd": 0
+}

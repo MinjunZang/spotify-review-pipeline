@@ -9,3 +9,7 @@ ollama,gemma4:e4b,local,input,0,1000000,token,USD,local inference (no API charge
 ollama,gemma4:e4b,local,output,0,1000000,token,USD,local inference (no API charge),2026-10-06
 fake,fake-keyword-v1,test,input,0,1000000,token,USD,synthetic test provider,2026-10-06
 fake,fake-keyword-v1,test,output,0,1000000,token,USD,synthetic test provider,2026-10-06
+anthropic,claude-sonnet-5,standard,input,2.00,1000000,token,USD,https://www.anthropic.com/news/claude-sonnet-5,2026-10-06
+anthropic,claude-sonnet-5,standard,output,10.00,1000000,token,USD,https://www.anthropic.com/news/claude-sonnet-5,2026-10-06
+fake,fake-priced-v1,test,input,1.00,1000000,token,USD,synthetic priced test model (budget-stop test only),2026-10-06
+fake,fake-priced-v1,test,output,1.00,1000000,token,USD,synthetic priced test model (budget-stop test only),2026-10-06

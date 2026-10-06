@@ -1,0 +1,30 @@
+{
+  "controls": {
+    "budget_usd": 15.0,
+    "workers": 4,
+    "tier": "standard",
+    "max_output_tokens": 4000,
+    "fallback_fraction": 0.0
+  },
+  "fallback": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-5",
+    "tier": "standard",
+    "note": "Declared but disabled (fraction 0): no stronger-model fallback is used unless measured benefit justifies it."
+  },
+  "projection": {
+    "rows": 660622,
+    "nonempty": 660609,
+    "empty": 13,
+    "distinct_texts": 484189,
+    "verify_rate": 0.003,
+    "verify_max_sample": 1500,
+    "ingest_seconds": 13
+  },
+  "conservative": {
+    "token_margin": 0.25,
+    "retry_rate": 0.10,
+    "time_multiplier": 1.5,
+    "fixed_multiplier": 3
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "budget_stop": {
+    "completed": 200,
+    "ledger": {
+      "cap_usd": 0.05,
+      "reserved_usd": 0.0,
+      "spent_usd": 0.020573
+    },
+    "passed": true,
+    "pending": 200,
+    "ran_at": "2026-10-06T11:54:22-0700",
+    "stop_reason": "budget: spent 0.0206 + reserved 0.0000 + next 0.0299 > cap 0.0500",
+    "synthetic": true
+  },
+  "empty_and_cache": {
+    "ids_sent_to_model": [
+      "synthetic-cache-000",
+      "synthetic-cache-005"
+    ],
+    "passed": true,
+    "ran_at": "2026-10-06T11:54:20-0700",
+    "statuses": [
+      [
+        "synthetic-cache-000",
+        "completed",
+        null,
+        1,
+        null
+      ],
+      [
+        "synthetic-cache-001",
+        "quarantined",
+        "empty_review_text",
+        0,
+        null
+      ],
+      [
+        "synthetic-cache-002",
+        "completed",
+        null,
+        0,
+        "synthetic-cache-000"
+      ],
+      [
+        "synthetic-cache-003",
+        "quarantined",
+        "empty_review_text",
+        0,
+        null
+      ],
+      [
+        "synthetic-cache-004",
+        "completed",
+        null,
+        0,
+        "synthetic-cache-000"
+      ],
+      [
+        "synthetic-cache-005",
+        "completed",
+        null,
+        1,
+        null
+      ],
+      [
+        "synthetic-cache-006",
+        "completed",
+        null,
+        0,
+        "synthetic-cache-005"
+      ]
+    ],
+    "synthetic": true
+  },
+  "quarantine": {
+    "example": {
+      "attempts": 2,
+      "reason": "malformed_output: Expecting value: line 1 column 14 (char 13); retry: malformed_output: Expecting value: line 1 column 14 (char 13)"
+    },
+    "passed": true,
+    "quarantined": 24,
+    "ran_at": "2026-10-06T11:54:20-0700",
+    "synthetic": true
+  },
+  "resume": {
+    "completed_after": 100,
+    "completed_before": 40,
+    "passed": true,
+    "phases_logged": [
+      "initial",
+      "resume"
+    ],
+    "ran_at": "2026-10-06T11:54:23-0700",
+    "resent_completed_ids": 0,
+    "synthetic": true
+  },
+  "retry_paths": {
+    "attempt_log": [
+      {
+        "attempt": 1,
+        "batch_id": "20261006T115418-1def28-b000000",
+        "batch_size": 6,
+        "error": "http_429: synthetic rate limit",
+        "outcome": "failed",
+        "retry_kind": "initial"
+      },
+      {
+        "attempt": 2,
+        "batch_id": "20261006T115418-1def28-b000000",
+        "batch_size": 6,
+        "error": "malformed_output: Expecting value: line 1 column 14 (char 13)",
+        "outcome": "failed",
+        "retry_kind": "initial+transient"
+      },
+      {
+        "attempt": 1,
+        "batch_id": "20261006T115418-1def28-b000000",
+        "batch_size": 6,
+        "error": null,
+        "outcome": "succeeded",
+        "retry_kind": "invalid_output_retry"
+      }
+    ],
+    "attempts_logged": 3,
+    "completed": 60,
+    "failed_attempts": 2,
+    "passed": true,
+    "ran_at": "2026-10-06T11:54:20-0700",
+    "records": 60,
+    "synthetic": true
+  }
+}
