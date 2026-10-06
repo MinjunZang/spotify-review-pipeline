@@ -1,0 +1,6 @@
+pilot_phase,request_id,role,provider,model,effort,tier,outcome,attempt,retry_kind,batch_size,input_tokens,cached_input_tokens,output_tokens,reasoning_tokens,latency_s,local_compute_s,ts
+cold,ollama-3ededd51f9e2,enrich,ollama,gemma4:e4b,none,local,succeeded,1,initial,50,2691,0,2802,0,139.799,139.775,2026-10-06T11:55:23-0700
+cold,ollama-3fbdea7e4419,enrich,ollama,gemma4:e4b,none,local,succeeded,1,initial,50,2728,0,2856,0,192.309,192.283,2026-10-06T11:58:35-0700
+cold,ollama-e347e983d9d3,verify,ollama,gemma4:e4b,none,local,succeeded,1,,,1248,0,510,0,36.015,36.014,2026-10-06T11:59:11-0700
+cold,ollama-7303d1e02d14,group,ollama,gemma4:e4b,none,local,succeeded,1,,,3067,0,1113,0,84.917,84.915,2026-10-06T12:00:36-0700
+cold,ollama-e6f7b5306df1,memo,ollama,gemma4:e4b,low,local,succeeded,1,,,5741,0,1278,0,115.053,115.05,2026-10-06T12:02:31-0700

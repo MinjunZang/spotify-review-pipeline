@@ -1,0 +1,30 @@
+{
+  "batch_size": 50,
+  "batches_done": 0,
+  "batches_planned": 0,
+  "cache_hits_at_start": 0,
+  "counts_after": {
+    "completed": 100
+  },
+  "counts_before": {
+    "completed": 100
+  },
+  "effort": "none",
+  "finished_at": "2026-10-06T12:02:31-0700",
+  "label_config": "gemma4:e4b|effort=none|enrich_v1@60e05ad9d03f|schema-v1",
+  "ledger": {
+    "cap_usd": 0.0,
+    "reserved_usd": 0.0,
+    "spent_usd": 0.0
+  },
+  "max_output_tokens": 4000,
+  "model": "gemma4:e4b",
+  "phase": "resume",
+  "provider": "ollama",
+  "rpm": 300.0,
+  "run_id": "20261006T120231-e4624b",
+  "stop_reason": "no_pending_work",
+  "tier": "local",
+  "wall_clock_s": 0.0,
+  "workers": 1
+}

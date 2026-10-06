@@ -1,0 +1,144 @@
+{
+  "input": "data/cost_100.csv",
+  "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+  "verify_sample_declared": 20,
+  "workers": 1,
+  "batch_size": 50,
+  "enrich": {
+    "provider": "ollama",
+    "model": "gemma4:e4b",
+    "effort": "none"
+  },
+  "verify": {
+    "provider": "ollama",
+    "model": "gemma4:e4b"
+  },
+  "group_memo": {
+    "provider": "ollama",
+    "model": "gemma4:e4b"
+  },
+  "timing": {
+    "cold": {
+      "wall_clock_s": 568.203,
+      "stage_seconds": {
+        "ingest": 0.01,
+        "enrich": 332.13,
+        "records": 0.01,
+        "verify": 36.03,
+        "group": 84.93,
+        "rank": 0.0,
+        "aggregates": 0.0,
+        "memo": 115.06
+      },
+      "new_calls": 5,
+      "new_enrich_calls": 2
+    },
+    "warm": {
+      "wall_clock_s": 0.035,
+      "stage_seconds": {
+        "enrich": 0.0,
+        "records": 0.0,
+        "verify": 0.0,
+        "group": 0.0,
+        "rank": 0.0,
+        "aggregates": 0.0,
+        "memo": 0.0
+      },
+      "new_calls": 0,
+      "new_enrich_calls": 0
+    }
+  },
+  "run_manifest": {
+    "code_version": "b4f80ae-dirty",
+    "input": "/Users/test/Desktop/spotify-review-pipeline/data/cost_100.csv",
+    "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+    "invocations": [
+      {
+        "enrich_stop_reason": "no_pending_work",
+        "finished_at": "2026-10-06T12:02:31-0700",
+        "stage_seconds": {
+          "aggregates": 0.0,
+          "enrich": 332.13,
+          "group": 84.93,
+          "ingest": 0.01,
+          "memo": 115.06,
+          "rank": 0.0,
+          "records": 0.01,
+          "verify": 36.03
+        },
+        "stages": [
+          "ingest",
+          "enrich",
+          "records",
+          "verify",
+          "group",
+          "rank",
+          "aggregates",
+          "memo"
+        ],
+        "wall_clock_s": 568.2
+      },
+      {
+        "enrich_stop_reason": "no_pending_work",
+        "finished_at": "2026-10-06T12:02:31-0700",
+        "stage_seconds": {
+          "aggregates": 0.0,
+          "enrich": 0.0,
+          "group": 0.0,
+          "memo": 0.0,
+          "rank": 0.0,
+          "records": 0.0,
+          "verify": 0.0
+        },
+        "stages": [
+          "enrich",
+          "records",
+          "verify",
+          "group",
+          "rank",
+          "aggregates",
+          "memo"
+        ],
+        "wall_clock_s": 0.03
+      }
+    ],
+    "prompts": {
+      "enrich_v1": "60e05ad9d03f",
+      "group_v1": "3b594bed6ba2",
+      "memo_v1": "f1f824fe4b3e",
+      "verify_v1": "ec6d869e3ca7"
+    },
+    "run_name": "t_pilot_local",
+    "settings": {
+      "batch_size": 50,
+      "budget": 0.0,
+      "downstream_model": "gemma4:e4b",
+      "downstream_provider": "ollama",
+      "enrich_effort": "none",
+      "enrich_model": "gemma4:e4b",
+      "enrich_provider": "ollama",
+      "finalize": false,
+      "input": "/Users/test/Desktop/spotify-review-pipeline/data/cost_100.csv",
+      "max_batches": null,
+      "memo_effort": "low",
+      "name": "t_pilot_local",
+      "phase": "auto",
+      "rpm": 300,
+      "snapshot": null,
+      "time_limit": null,
+      "verify_model": "gemma4:e4b",
+      "verify_provider": "ollama",
+      "verify_sample": 20,
+      "workers": 1
+    }
+  },
+  "records_summary": {
+    "by_status": {
+      "completed": 100
+    },
+    "completed_via_exact_text_cache": 0,
+    "finalized": false,
+    "quarantine_reasons": {},
+    "records": 100
+  }
+}

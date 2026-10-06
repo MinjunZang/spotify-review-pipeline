@@ -1,0 +1,43 @@
+{
+  "agreement": {
+    "compared": 20,
+    "flagged_rate": 0.05,
+    "intent_rate": 1.0,
+    "severity_exact_rate": 0.9,
+    "severity_mae": 0.1,
+    "severity_within1_rate": 1.0,
+    "topic_rate": 0.95
+  },
+  "declared_sample_size": 20,
+  "disagreement_count": 1,
+  "enrich_records_available": 100,
+  "generated_at": "2026-10-06T12:02:31-0700",
+  "planted_error_test": {
+    "cases": [
+      {
+        "original_intent": "complaint",
+        "original_topic": "usability",
+        "planted_intent": "praise",
+        "planted_topic": "downloads",
+        "review_id": "3e8bdc92-4934-457e-85cc-8b9d14bf51c0"
+      },
+      {
+        "original_intent": "complaint",
+        "original_topic": "support",
+        "planted_intent": "praise",
+        "planted_topic": "usability",
+        "review_id": "33526c6f-7a49-4b3d-bd20-d1bc191c494c"
+      }
+    ],
+    "detected": 1.0,
+    "note": "Copies of sampled enriched labels with deliberately wrong topic+intent; detected = verifier disagrees. Not part of any business output.",
+    "planted": 2,
+    "synthetic": true
+  },
+  "sample_seed": "verify-seed-v1",
+  "stop_reason": "complete",
+  "verified": 20,
+  "verify_calls": 0,
+  "verify_config": "gemma4:e4b|effort=none|verify_v1@ec6d869e3ca7",
+  "verify_cost_usd": 0
+}

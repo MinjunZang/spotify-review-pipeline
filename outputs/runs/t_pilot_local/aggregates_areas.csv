@@ -1,0 +1,8 @@
+area,complaint_count,severity_sum,mean_severity,share_of_complaints_pct,cancellation_count,sev4plus_count,sev4plus_share_of_area_pct
+billing_support,10,35,3.500000,20.0,1,5,50.0
+usability,11,33,3.000000,22.0,2,2,18.18
+other,13,29,2.230769,26.0,4,1,7.69
+playback,7,25,3.571429,14.0,1,4,57.14
+catalog,5,13,2.600000,10.0,1,1,20.0
+access,2,8,4.000000,4.0,0,2,100.0
+downloads,2,7,3.500000,4.0,0,1,50.0

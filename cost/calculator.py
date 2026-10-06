@@ -153,6 +153,8 @@ def main():
     tok_out = enr["output_tokens"] / texts_sent
     enrich_rate_key = (stage_info["enrich"][0], stage_info["enrich"][1])
     tier = ctl["tier"]
+    if (enrich_rate_key[0], enrich_rate_key[1], tier) not in rates:
+        tier = stage_info["enrich"][3]  # no such tier for this model: project at the measured tier
     per_text = lambda mi, mo: call_cost(rates, {"provider": enrich_rate_key[0], "model": enrich_rate_key[1], "tier": tier,  # noqa: E731
                                                 "input_tokens": tok_in * mi, "cached_input_tokens": tok_cached * mi,
                                                 "output_tokens": min(tok_out * mo, ctl["max_output_tokens"] / meta["batch_size"])})
@@ -196,7 +198,7 @@ def main():
              f"Distinct nonempty texts with valid exact-text reuse: **{n_distinct:,}**.")
     L.append(f"* Measured per sent text (enrich, incl. its retries and the fixed prompt share at batch size {meta['batch_size']}): "
              f"{tok_in:.1f} input tok ({tok_cached:.1f} cached), {tok_out:.1f} output tok.")
-    L.append(f"* Controls: budget **${ctl['budget_usd']:.2f}** · workers {workers} · tier `{tier}`"
+    L.append(f"* Controls: budget **${ctl['budget_usd']:.2f}** · workers {workers} · projected tier `{tier}`"
              f"{' (hypothetical: not the measured tier)' if tier != stage_info['enrich'][3] else ''} · output-token cap "
              f"{ctl['max_output_tokens']}/request · fallback fraction {ctl['fallback_fraction']:.1%} to `{fb['model']}` · "
              f"verification {proj['verify_rate']:.1%} of texts, max {proj['verify_max_sample']:,} (local)")
