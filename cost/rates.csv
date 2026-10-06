@@ -1,0 +1,11 @@
+provider,model,tier,item,price_usd,per_units,unit,currency,source_url,checked_on
+openai,gpt-6-luna,standard,input,0.10,1000000,token,USD,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-06
+openai,gpt-6-luna,standard,cached_input,0.01,1000000,token,USD,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-06
+openai,gpt-6-luna,standard,output,0.50,1000000,token,USD,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-06
+openai,gpt-6-luna,batch,input,0.05,1000000,token,USD,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-06
+openai,gpt-6-luna,batch,cached_input,0.005,1000000,token,USD,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-06
+openai,gpt-6-luna,batch,output,0.25,1000000,token,USD,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-06
+ollama,gemma4:e4b,local,input,0,1000000,token,USD,local inference (no API charge),2026-10-06
+ollama,gemma4:e4b,local,output,0,1000000,token,USD,local inference (no API charge),2026-10-06
+fake,fake-keyword-v1,test,input,0,1000000,token,USD,synthetic test provider,2026-10-06
+fake,fake-keyword-v1,test,output,0,1000000,token,USD,synthetic test provider,2026-10-06

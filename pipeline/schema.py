@@ -56,19 +56,23 @@ def label_config(model, effort, prompt_name):
     return f"{model}|effort={effort}|{prompt_name}@{prompt_hash(prompt_name)}|{SCHEMA_VERSION}"
 
 
+LABELS = [f"{t}.{sub}" for t, subs in SUBTOPICS.items() for sub in subs]  # "playback.crash_freeze"
+SHORT_REVIEW_WORDS = 20  # at or below this, code uses the whole review as the evidence quote
+
+
 def enrich_json_schema():
+    """Compact output (output tokens dominate cost): label = topic.subtopic, short keys."""
     item = {
         "type": "object", "additionalProperties": False,
-        "required": ["id", "topic", "subtopic", "intent", "severity", "sentiment", "quote", "needs_review"],
+        "required": ["id", "label", "intent", "sev", "sent", "q", "flag"],
         "properties": {
             "id": {"type": "string"},
-            "topic": {"type": "string", "enum": list(TOPICS)},
-            "subtopic": {"type": "string", "enum": ALL_SUBTOPICS},
+            "label": {"type": "string", "enum": LABELS},
             "intent": {"type": "string", "enum": list(INTENTS)},
-            "severity": {"type": "integer", "enum": [1, 2, 3, 4, 5]},
-            "sentiment": {"type": "number"},
-            "quote": {"type": "string"},
-            "needs_review": {"type": "boolean"},
+            "sev": {"type": "integer", "enum": [1, 2, 3, 4, 5]},
+            "sent": {"type": "number"},
+            "q": {"type": "string"},
+            "flag": {"type": "boolean"},
         },
     }
     return {"type": "object", "additionalProperties": False, "required": ["results"],
@@ -107,12 +111,19 @@ def resolve_quote(text, quote):
     return None
 
 
+def is_short(text):
+    return len(text.split()) <= SHORT_REVIEW_WORDS
+
+
 def validate_item(item, text):
-    """Validate one model result against the schema. Returns (fields, error)."""
+    """Validate one compact model result against the schema. Returns (fields, error)."""
     if not isinstance(item, dict):
         return None, "not_an_object"
-    topic, sub, intent = item.get("topic"), item.get("subtopic"), item.get("intent")
-    sev, sent, nr = item.get("severity"), item.get("sentiment"), item.get("needs_review")
+    label, intent = item.get("label"), item.get("intent")
+    sev, sent, flag = item.get("sev"), item.get("sent"), item.get("flag")
+    if not isinstance(label, str) or label.count(".") != 1:
+        return None, "invalid_label"
+    topic, sub = label.split(".")
     if topic not in TOPICS:
         return None, "invalid_topic"
     if intent not in INTENTS:
@@ -121,14 +132,13 @@ def validate_item(item, text):
         return None, "invalid_severity"
     if type(sent) not in (int, float) or not -1 <= sent <= 1:
         return None, "invalid_sentiment"
-    if type(nr) is not bool:
+    if type(flag) is not bool:
         return None, "invalid_needs_review"
     if sub not in SUBTOPICS[topic]:
-        sub = SUBTOPICS[topic][0] if topic != "other" else "general"
-        nr = True  # a mismatched subtopic is a signal of confusion; keep the label but flag it
-    quote = resolve_quote(text, item.get("quote"))
+        sub, flag = SUBTOPICS[topic][0], True  # keep the topic, flag the confusion
+    quote = text if is_short(text) and text.strip() else resolve_quote(text, item.get("q"))
     if quote is None:
         return None, "quote_not_in_source"
     return {"topic": topic, "subtopic": sub, "intent": intent, "severity": sev,
             "sentiment": round(float(sent), 2), "evidence_quote": quote,
-            "entities": extract_entities(text), "needs_review": nr}, None
+            "entities": extract_entities(text), "needs_review": flag}, None

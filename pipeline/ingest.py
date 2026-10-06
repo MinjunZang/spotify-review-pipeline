@@ -15,13 +15,14 @@ Usage: python -m pipeline.ingest [--input path.csv] [--db work/pipeline.sqlite]
 """
 
 import argparse
+import json
 import sqlite3
 import statistics
 import time
 from collections import Counter
 from pathlib import Path
 
-from .common import (DEFAULT_INPUT, EXPECTED_SHA256, OUTPUTS, WORK, append_jsonl,
+from .common import (DATA, DEFAULT_INPUT, EXPECTED_SHA256, OUTPUTS, WORK, append_jsonl,
                      is_empty, now_iso, read_rows, row_sha, text_sha, write_json)
 from check_submission import profile as checker_profile  # noqa: E402 (path set by .common)
 
@@ -43,6 +44,15 @@ CREATE TABLE IF NOT EXISTS status (
   reason TEXT, attempts INTEGER NOT NULL DEFAULT 0, updated_at TEXT
 );
 """
+
+
+def manifest_match(name, digest):
+    """True/False if the course manifest lists this file name; None for arbitrary inputs."""
+    try:
+        files = json.loads((DATA / "manifest.json").read_text())["files"]
+    except (OSError, ValueError, KeyError):
+        return None
+    return files[name]["sha256"] == digest if name in files else None
 
 
 def ingest(input_path, db_path, out_dir):
@@ -112,7 +122,8 @@ def ingest(input_path, db_path, out_dir):
     report = {
         "generated_at": ts,
         "input": {"path": input_path.name, "bytes": input_path.stat().st_size, "sha256": fsha,
-                  "matches_course_manifest": fsha == EXPECTED_SHA256},
+                  "is_full_course_corpus": fsha == EXPECTED_SHA256,
+                  "matches_course_manifest_entry": manifest_match(input_path.name, fsha)},
         "counts": {
             "source_rows": rows,
             "unique_review_ids": len(seen_ids),
