@@ -1,4 +1,7 @@
-"""Local web tool for HUMAN labeling of the golden 50 (no model calls, no model predictions shown).
+"""Local web tool for human labeling of the golden 50. No model calls; pipeline predictions are never shown.
+
+If evals/golden/golden_50_ai_draft.csv exists, its AI-drafted labels are pre-filled for the human to
+confirm or edit; each saved row records label_source (human_confirmed / human_edited / human_only).
 
 Usage:  python3 tools/label_golden.py      then open http://127.0.0.1:8765
 Saves after every review to evals/golden/golden_50_human.csv (resumable).
@@ -15,11 +18,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "golden_50_to_label.csv"
 OUT = ROOT / "evals" / "golden" / "golden_50_human.csv"
+DRAFT = ROOT / "evals" / "golden" / "golden_50_ai_draft.csv"  # AI suggestions; human must confirm/edit
 TOPICS = ["access", "usability", "playback", "downloads", "catalog", "billing", "support", "other"]
 INTENTS = ["cancellation", "complaint", "request", "praise", "unclear"]
-EXTRA = ["alt_topics", "alt_intents", "alt_severities", "ambiguous", "notes", "labeled_at"]
+EXTRA = ["alt_topics", "alt_intents", "alt_severities", "ambiguous", "notes", "label_source", "labeled_at"]
+CORE = ("topic", "intent", "severity", "sentiment", "evidence_quote", "needs_review")
 
 rows = list(csv.DictReader(SRC.open(encoding="utf-8")))
+drafts = {r["review_id"]: r for r in csv.DictReader(DRAFT.open(encoding="utf-8"))} if DRAFT.exists() else {}
 BASE_FIELDS = list(rows[0].keys())
 FIELDS = BASE_FIELDS + EXTRA
 
@@ -62,7 +68,7 @@ small{color:#777}
 </style></head><body><div class="wrap"><div>
 <div class="card"><div><b>Golden 50 — human labels</b> <span id="prog"></span></div><div class="dots" id="dots"></div></div>
 <div class="card" style="margin-top:12px">
-<div class="meta" id="meta"></div><div class="review" id="text"></div>
+<div class="meta" id="meta"></div><div id="banner" style="display:none;background:#e8f0ff;border:1px solid #9ab;padding:6px 10px;border-radius:6px;margin-bottom:8px;font-size:13px"><b>AI draft</b> pre-filled — check it, change anything you disagree with, then Save. <span id="dnote"></span></div><div class="review" id="text"></div>
 <h3>Topic</h3><div id="topic"></div>
 <h3>Intent</h3><div id="intent"></div>
 <h3>Severity</h3><div id="severity"></div>
@@ -97,7 +103,7 @@ small{color:#777}
 <p><b>Sentiment:</b> −1 very negative … 0 neutral … +1 very positive.</p>
 <p>Judge the <b>text</b>, not the stars.</p></div></div>
 <script>
-const T=__TOPICS__,I=__INTENTS__;let D=[],S={},cur=0;
+const T=__TOPICS__,I=__INTENTS__;let D=[],S={},DR={},cur=0;
 function radios(id,vals,name){document.getElementById(id).innerHTML=vals.map(v=>`<label class="opt"><input type="radio" name="${name}" value="${v}"> ${v}</label>`).join('')}
 function checks(id,vals,name){document.getElementById(id).innerHTML=vals.map(v=>`<label class="opt"><input type="checkbox" name="${name}" value="${v}"> ${v}</label>`).join('')}
 radios('topic',T,'topic');radios('intent',I,'intent');radios('severity',[1,2,3,4,5],'severity');
@@ -111,7 +117,8 @@ function getR(n){const e=document.querySelector(`input[name=${n}]:checked`);retu
 function getC(n){return [...document.querySelectorAll(`input[name=${n}]:checked`)].map(e=>e.value).join('|')}
 function useSel(){const s=String(window.getSelection());if(s)$('quote').value=s}
 function useAll(){$('quote').value=D[cur].review_text}
-function render(){const r=D[cur],s=S[r.review_id]||{};
+function render(){const r=D[cur],isD=!S[r.review_id]&&DR[r.review_id],s=S[r.review_id]||DR[r.review_id]||{};
+ $('banner').style.display=isD?'block':'none';$('dnote').textContent=isD&&s.notes?'Draft note: '+s.notes:'';
  $('meta').textContent=`#${cur+1} of ${D.length} · ${r.review_id}`;
  $('text').textContent=r.review_text;
  setR('topic',s.topic||'');setR('intent',s.intent||'');setR('severity',s.severity||'');
@@ -130,7 +137,7 @@ async function saveNext(){const r=D[cur];
  const res=await fetch('/save',{method:'POST',body:JSON.stringify(body)});const j=await res.json();
  if(!j.ok){$('msg').innerHTML='<span class="err">'+j.error+'</span>';return}
  S[r.review_id]=j.saved;if(cur<D.length-1)cur++;render()}
-fetch('/data').then(r=>r.json()).then(j=>{D=j.rows;S=j.saved;const f=D.findIndex(d=>!S[d.review_id]);cur=f<0?0:f;render()});
+fetch('/data').then(r=>r.json()).then(j=>{D=j.rows;S=j.saved;DR=j.drafts||{};const f=D.findIndex(d=>!S[d.review_id]);cur=f<0?0:f;render()});
 </script></body></html>"""
 
 
@@ -149,7 +156,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/data":
             pub = [{"review_id": r["review_id"], "review_text": r["review_text"]} for r in rows]
-            self._send(json.dumps({"rows": pub, "saved": load_saved_labeled()}))
+            self._send(json.dumps({"rows": pub, "saved": load_saved_labeled(), "drafts": drafts}))
         else:
             self._send(PAGE.replace("__TOPICS__", json.dumps(TOPICS)).replace("__INTENTS__", json.dumps(INTENTS)), "text/html")
 
@@ -177,11 +184,24 @@ class Handler(BaseHTTPRequestHandler):
                "needs_review": str(bool(b["needs_review"])).lower(), "ambiguous": str(bool(b["ambiguous"])).lower(),
                "alt_topics": b["alt_topics"] if b["ambiguous"] else "", "alt_intents": b["alt_intents"] if b["ambiguous"] else "",
                "alt_severities": b["alt_severities"] if b["ambiguous"] else "", "notes": b["notes"],
+               "label_source": label_source(b["review_id"], b),
                "labeled_at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}
         saved = load_saved_labeled()
         saved[b["review_id"]] = rec
         save(saved)
         self._send(json.dumps({"ok": True, "saved": rec}))
+
+
+def label_source(rid, b):
+    """human_confirmed = saved unchanged from the AI draft; human_edited = changed; human_only = no draft."""
+    d = drafts.get(rid)
+    if not d:
+        return "human_only"
+    new = {"topic": b["topic"], "intent": b["intent"], "severity": b["severity"], "sentiment": b["sentiment"],
+           "evidence_quote": b["evidence_quote"], "needs_review": str(bool(b["needs_review"])).lower()}
+    old = {k: d[k] for k in CORE}
+    old["sentiment"] = f"{float(old['sentiment']):.1f}"
+    return "human_confirmed" if new == old else "human_edited"
 
 
 def load_saved_labeled():
