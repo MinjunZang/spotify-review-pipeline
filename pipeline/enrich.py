@@ -147,7 +147,13 @@ class Enricher:
             return None, ("transient_exhausted: " if res.transient else "call_failed: ") + res.error, res.transient
         parse_error = None
         try:
-            parsed = json.loads(res.text)["results"]
+            # take the first complete JSON object; trailing junk after it (seen with gpt-6-luna on ~1% of
+            # batches) is ignored. Every ID and field is still validated below, so nothing is trusted blindly.
+            obj, end = json.JSONDecoder().raw_decode(res.text.lstrip())
+            if res.text.lstrip()[end:].strip():
+                self.log("trailing_output_ignored", request_id=res.request_id, batch_id=batch_id,
+                         trailing_chars=len(res.text.lstrip()[end:].strip()))
+            parsed = obj["results"]
             if not isinstance(parsed, list):
                 raise ValueError("results is not a list")
         except (ValueError, KeyError, TypeError) as e:

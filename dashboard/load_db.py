@@ -38,7 +38,7 @@ CREATE TABLE memo (id INT PRIMARY KEY, priority_area TEXT, headline TEXT, markdo
   cited_review_ids JSONB);
 CREATE TABLE reviews (review_id TEXT PRIMARY KEY, status TEXT, reason TEXT, topic TEXT, subtopic TEXT, intent TEXT,
   severity INT, sentiment REAL, needs_review BOOLEAN, evidence_quote TEXT, cache_source_id TEXT, issue_id TEXT,
-  review_rating TEXT, review_timestamp TEXT, app_version TEXT, label_config TEXT);
+  review_rating TEXT, review_timestamp TEXT, app_version TEXT);
 """
 INDEXES = """
 CREATE INDEX reviews_issue ON reviews(issue_id, severity DESC);
@@ -133,7 +133,7 @@ def main():
                               (r["needs_review"] == "True") if done else None,
                               r["evidence_quote"][:500] if done else None, r["cache_source_id"] or None,
                               membership.get(r["review_id"]), r["review_rating"], r["review_timestamp"],
-                              r["app_version"] or None, r["label_config"] or None))
+                              r["app_version"] or None))
                 n += 1
         cur.execute(INDEXES)
         con.commit()

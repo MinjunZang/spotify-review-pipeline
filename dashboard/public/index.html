@@ -74,7 +74,7 @@ footer { max-width: 1180px; margin: auto; padding: 0 16px 32px; color: var(--mut
 <body>
 <header>
   <h1>Where should Spotify's next quarter of product effort go?</h1>
-  <p>Evidence from 660,622 Google Play reviews (May 2022 – Nov 2023), classified by a multi-agent pipeline.
+  <p>Evidence from <span id="n-src">…</span> Google Play reviews (May 2022 – Nov 2023), classified by a multi-agent pipeline.
      Every number below is read from the processed-results database; the recommendation cites claim IDs you can hover.</p>
 </header>
 <main>
@@ -135,6 +135,7 @@ function hideTip() { tip.style.display = "none"; }
 async function get(path) { const r = await fetch(path); if (!r.ok) throw new Error(path + " " + r.status); return r.json(); }
 
 let CLAIMS = {};
+let LABEL_CONFIG = "";
 
 function hbars(el, rows, valueKey, labelFn, tipFn) {
   const W = 520, rowH = 30, left = 130, right = 70, H = rows.length * rowH + 8;
@@ -217,7 +218,7 @@ async function trace(id) {
       <tr><th>status</th><td>${r.status}${r.reason ? ` — ${esc(r.reason)}` : ""}</td></tr>
       ${r.status === "completed" ? `<tr><th>labels</th><td>${r.topic} / ${r.subtopic} · ${r.intent} · severity ${r.severity} · sentiment ${(+r.sentiment).toFixed(2)}${r.needs_review ? " · needs review" : ""}</td></tr>
       <tr><th>evidence</th><td><div class="quote">“${esc(r.evidence_quote)}”</div></td></tr>
-      <tr><th>provenance</th><td>${r.cache_source_id ? `exact-text cache reuse of <span class="rid" data-review="${r.cache_source_id}">${r.cache_source_id.slice(0, 8)}…</span>` : "sent to the enricher"} · <code>${esc(r.label_config)}</code></td></tr>` : ""}
+      <tr><th>provenance</th><td>${r.cache_source_id ? `exact-text cache reuse of <span class="rid" data-review="${r.cache_source_id}">${r.cache_source_id.slice(0, 8)}…</span>` : "sent to the enricher"} · <code>${esc(LABEL_CONFIG)}</code></td></tr>` : ""}
       <tr><th>source</th><td>${r.review_rating}★ · ${esc(r.review_timestamp)} · app ${esc(r.app_version || "missing")}</td></tr>
       <tr><th>issue</th><td>${d.issue ? `<code class="rid" data-issue="${d.issue.issue_id}">${d.issue.issue_id}</code> — rank #${d.issue.rank}, priority ${fmt(d.issue.priority_score)} ${d.claims.map((c) => `<span class="claim" data-claim="${c.claim_id}">${c.claim_id}</span>`).join(" ")}` : "not in the complaint ranking (praise / request / unclear, or not completed)"}</td></tr></table>`;
     wire($("trace"));
@@ -231,10 +232,12 @@ $("rid").addEventListener("change", (e) => trace(e.target.value));
     m.claims.forEach((c) => CLAIMS[c.claim_id] = c);
     const meta = ov.meta, cov = meta.coverage, st = cov.status;
     const rs = meta.run_summary || {};
+    $("n-src").textContent = fmt(cov.source_rows);
+    LABEL_CONFIG = rs.label_config || "";
     const tiles = [
       ["Source reviews", fmt(cov.source_rows), "every original review_id accounted for"],
       ["Classified", fmt(cov.completed_records), `${(100 * cov.completed_records / cov.source_rows).toFixed(2)}% of rows`],
-      ["Quarantined", fmt(st.quarantined || 0), "13 empty texts + unresolved model output"],
+      ["Quarantined", fmt(st.quarantined || 0), Object.entries(meta.records_summary.quarantine_reasons || {}).map(([k, v]) => `${fmt(v)} ${k.replace(/_/g, " ")}`).join(" · ") || "none"],
       ["Complaints & cancellations", fmt(meta.complaint_or_cancellation_records), "ranked records"],
       ["Exact-text cache reuse", fmt(meta.records_summary.completed_via_exact_text_cache), "rows labeled without a new call"],
       ["API spend (all stages)", rs.api_cost_usd != null ? "$" + (+rs.api_cost_usd).toFixed(2) : "see README", "from logged usage × dated rates"],
