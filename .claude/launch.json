@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {"name": "golden-labeler", "runtimeExecutable": "python3", "runtimeArgs": ["tools/label_golden.py", "8765"], "port": 8765}
+  ]
+}
