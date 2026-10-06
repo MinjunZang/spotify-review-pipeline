@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+
+# raw dataset (download link + checksum in README)
+data/spotify_reviews_18months.csv
+data/spotify_dataset.zip
+
+# local working state
+work/
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.DS_Store
+local-reference.json
+self-check.json
