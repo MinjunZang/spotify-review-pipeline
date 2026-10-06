@@ -1,0 +1,130 @@
+{
+  "accounting_check": {
+    "every_id_has_status": true,
+    "rows == nonempty + quarantined": true
+  },
+  "counts": {
+    "distinct_nonempty_texts": 8448,
+    "duplicate_review_ids": 0,
+    "empty_review_text_quarantined": 0,
+    "exact_duplicate_text_rows_reusable": 1552,
+    "missing_app_version": 2447,
+    "nonempty_to_classify": 10000,
+    "source_rows": 10000,
+    "unique_review_ids": 10000
+  },
+  "empty_review_ids": [],
+  "first_review": "2022-05-17 02:29:15",
+  "generated_at": "2026-10-06T13:23:59-0700",
+  "input": {
+    "bytes": 1477793,
+    "is_full_course_corpus": false,
+    "matches_course_manifest_entry": true,
+    "path": "analysis_10000.csv",
+    "sha256": "eaa62ca6d44d717302904a9c922e99b0b4584d174309cb45295ecbc2ba2a91b5"
+  },
+  "last_review": "2023-11-15 22:13:05",
+  "most_repeated_texts": [
+    {
+      "rows": 214,
+      "text": "Good"
+    },
+    {
+      "rows": 79,
+      "text": "Nice"
+    },
+    {
+      "rows": 60,
+      "text": "Great"
+    },
+    {
+      "rows": 53,
+      "text": "Awesome"
+    },
+    {
+      "rows": 48,
+      "text": "Love it"
+    },
+    {
+      "rows": 48,
+      "text": "Excellent"
+    },
+    {
+      "rows": 37,
+      "text": "Super"
+    },
+    {
+      "rows": 34,
+      "text": "Worst app"
+    },
+    {
+      "rows": 31,
+      "text": "Good app"
+    },
+    {
+      "rows": 30,
+      "text": "Very good"
+    },
+    {
+      "rows": 28,
+      "text": "Nice app"
+    },
+    {
+      "rows": 24,
+      "text": "Best"
+    },
+    {
+      "rows": 23,
+      "text": "Worst"
+    },
+    {
+      "rows": 21,
+      "text": "Amazing"
+    },
+    {
+      "rows": 21,
+      "text": "Very bad"
+    }
+  ],
+  "partial_months_note": "First (2022-05, from 05-17) and last (2023-11, to 11-15) months are partial.",
+  "reviews_by_month": {
+    "2022-05": 232,
+    "2022-06": 421,
+    "2022-07": 506,
+    "2022-08": 466,
+    "2022-09": 438,
+    "2022-10": 412,
+    "2022-11": 406,
+    "2022-12": 520,
+    "2023-01": 451,
+    "2023-02": 337,
+    "2023-03": 425,
+    "2023-04": 359,
+    "2023-05": 423,
+    "2023-06": 391,
+    "2023-07": 1246,
+    "2023-08": 459,
+    "2023-09": 625,
+    "2023-10": 1381,
+    "2023-11": 502
+  },
+  "reviews_by_rating": {
+    "1": 3685,
+    "2": 469,
+    "3": 498,
+    "4": 836,
+    "5": 4512
+  },
+  "runtime_seconds": 0.1,
+  "status_after_ingestion": {
+    "pending": 10000
+  },
+  "text_length_chars": {
+    "max": 615,
+    "mean": 75.24,
+    "median": 32.0,
+    "min": 1,
+    "p90": 210,
+    "p99": 492
+  }
+}

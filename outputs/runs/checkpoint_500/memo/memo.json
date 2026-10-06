@@ -1,0 +1,57 @@
+{
+  "check": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": [
+          "number without claim citation: '17'",
+          "number '42.5%' does not match [A020] = 17",
+          "number '9.25%' does not match [T033] = 3.88",
+          "number '59' does not match [C013] = 17",
+          "number '13.22%' does not match [T009] = 6.98",
+          "number '118' does not match [C001] = 40"
+        ]
+      },
+      {
+        "attempt": 2,
+        "problems": []
+      }
+    ],
+    "passed": true,
+    "problems": []
+  },
+  "cited_claim_ids": [
+    "A001",
+    "A003",
+    "A008",
+    "A010",
+    "A015",
+    "A017",
+    "A020",
+    "A021",
+    "A036",
+    "A038",
+    "C013",
+    "C014",
+    "T009",
+    "T012",
+    "T033",
+    "T036"
+  ],
+  "cited_issue_ids": [
+    "playback.connection_error",
+    "playback.crash_freeze",
+    "playback.playback_stops_or_skips"
+  ],
+  "cited_review_ids": [
+    "4a806587-0dde-4fb4-b4f1-f5c7d197c927",
+    "a7b7539a-c8d3-4f4e-9edd-d46cd1b1fd12",
+    "f87fb3d9-501a-4119-bc40-b0669270ae44"
+  ],
+  "generated_at": "2026-10-06T13:23:53-0700",
+  "headline": "Prioritize playback reliability: stop failures, false connection errors, and crashes",
+  "memo_config": "gpt-6-luna|effort=low|memo_v1@f1f824fe4b3e",
+  "memo_markdown": "## Recommendation\nMake playback reliability the next-quarter priority. Fix `playback.playback_stops_or_skips`, then investigate `playback.connection_error` and `playback.crash_freeze`.\n\n## Evidence\nPlayback accounts for 40 complaints [A015], with mean severity 3.350000 [A017]; 17 were severity four or higher [A020], representing 42.5% of playback complaints [A021]. Stops or failures to start had 17 complaints [C013] and a severity sum of 59 [C014]. Playback’s share rose from 3.88% in the early trend window [T033] to 9.25% in the late window [T036]. Representative reports: a7b7539a-c8d3-4f4e-9edd-d46cd1b1fd12, f87fb3d9-501a-4119-bc40-b0669270ae44, and 4a806587-0dde-4fb4-b4f1-f5c7d197c927.\n\n## Alternatives considered\nBilling/support has more complaints, 50 [A008], but lower mean severity, 3.020000 [A010]; its trend share rose from 6.98% [T009] to 13.22% [T012], so it remains a strong alternative. Usability also has more complaints, 62 [A001], but mean severity is 2.500000 [A003]. Access is severe among reported issues (mean severity 3.888889 [A038]), but has 9 complaints [A036]. Playback combines substantial severity with a rising trend.\n\n## Limitations\nEvidence covers public, self-selected reviews, not a customer population. Complaint and cancellation records only inform the ranking. Cancellation is expressed intent, not observed churn. Trend windows exclude the partial first and last months; issue classifications may leave some reports unresolved.",
+  "pack_sha256": "72398786388a64e656494600cb05c79a6c16711777dd6a00f4d148348a22d7ae",
+  "priority_area": "playback"
+}

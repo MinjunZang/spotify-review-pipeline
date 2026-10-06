@@ -108,7 +108,35 @@ def resolve_quote(text, quote):
     q = quote.strip().strip('"“”\'')
     if q and q in text:
         return q
-    return None
+    return _normalized_find(text, q) if q else None
+
+
+_EQUIV = str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"'})
+
+
+def _normalized_find(text, q):
+    """Locate q in text ignoring case, whitespace runs and curly/straight quote differences.
+
+    Returns the ORIGINAL source span (so the quote is still an exact substring), or None.
+    """
+    def norm(s):
+        chars, idx = [], []
+        for i, ch in enumerate(s):
+            ch = ch.translate(_EQUIV).lower()
+            if ch.isspace():
+                if chars and chars[-1] == " ":
+                    continue
+                ch = " "
+            chars.append(ch)
+            idx.append(i)
+        return "".join(chars), idx
+    nt, map_t = norm(text)
+    nq = norm(q)[0].strip()
+    pos = nt.find(nq) if len(nq) >= 3 else -1
+    if pos < 0:
+        return None
+    span = text[map_t[pos]:map_t[pos + len(nq) - 1] + 1]
+    return span if span.strip() and span in text else None
 
 
 def is_short(text):

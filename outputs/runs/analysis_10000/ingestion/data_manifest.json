@@ -1,0 +1,10 @@
+{
+  "bytes": 1477793,
+  "dataset_source": "https://drive.google.com/file/d/1P0rUoAS_wVjp3BYKqXMEyD4u0uJP1Bvf/view",
+  "db": "analysis_10000/pipeline.sqlite",
+  "hash_convention": "source_sha256 = SHA-256 of compact UTF-8 JSON of the six field strings (check_submission.row_sha)",
+  "parsed_rows_sha256": "3a21df52adbf2ab3185b73e93b30a9539c1806379e097b0f4a904c869ed40e20",
+  "sha256": "eaa62ca6d44d717302904a9c922e99b0b4584d174309cb45295ecbc2ba2a91b5",
+  "source_file": "analysis_10000.csv",
+  "upstream": "https://www.kaggle.com/datasets/bwandowando/3-4-million-spotify-google-store-reviews (v2, CC0)"
+}

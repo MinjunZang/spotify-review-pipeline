@@ -1,0 +1,50 @@
+{
+  "check": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "passed": true,
+    "problems": []
+  },
+  "cited_claim_ids": [
+    "A001",
+    "A003",
+    "A007",
+    "A008",
+    "A015",
+    "A017",
+    "A038",
+    "A042",
+    "C001",
+    "C013",
+    "C025",
+    "C027",
+    "K002",
+    "K003",
+    "K005",
+    "T003",
+    "T006",
+    "T009",
+    "T012",
+    "T033",
+    "T036"
+  ],
+  "cited_issue_ids": [
+    "access.login_failure",
+    "billing.premium_paywall",
+    "playback.playback_stops_or_skips"
+  ],
+  "cited_review_ids": [
+    "91b3f409-7fcf-472b-a308-29361707085e",
+    "c4da3f91-0e39-4eb9-b992-43c75ed5ca66"
+  ],
+  "generated_at": "2026-10-06T13:36:57-0700",
+  "headline": "Prioritize access: eliminate login failures and investigate the rising access complaint signal.",
+  "memo_config": "gpt-6-luna|effort=low|memo_v1@f1f824fe4b3e",
+  "memo_markdown": "## Recommendation\nMake **access** the next-quarter priority. Fix `access.login_failure` first, focusing on sign-in failures and false “no internet” errors; use the broader access complaint signal to identify additional access blockers.\n\n## Evidence\nAccess complaints have high reported severity: mean severity is 3.853333 [A038], and 81.33% are severity 4+ [A042]. Access’s share of complaints rose from 1.21% in the early trend window [T003] to 1.75% in the late window [T006]. The specific `access.login_failure` issue has 115 complaints [C025] and mean severity 3.886957 [C027]. Reviews describe being “unable to log in” (91b3f409-7fcf-472b-a308-29361707085e) and a sign-in error reporting no internet (c4da3f91-0e39-4eb9-b992-43c75ed5ca66).\n\n## Alternatives considered\nPlayback has a larger complaint burden, 653 [A015], and higher mean severity, 3.192956 [A017], but its complaint share declined from 7.18% [T033] to 5.13% [T036]. Its `playback.playback_stops_or_skips` issue is significant at 301 complaints [C013], but the trend does not make it the clearest next-quarter priority. Billing/support has 932 complaints [A008], but the top `billing.premium_paywall` issue reflects perceived restrictions on basic listening [C001]; billing/support’s complaint share rose from 4.04% [T009] to 13.97% [T012], so it remains a strong alternative. Usability has the largest area complaint count, 1,280 [A001], but lower mean severity, 2.528906 [A003], and a lower severity-4+ share than access, 1.48% [A007].\n\n## Limitations\nEvidence covers completed review records: 9,996 [K002], with 4 quarantined [K003]; the analysis uses complaint and cancellation records only [K005]. Public reviews are self-selected and are not representative of the customer population. Cancellation mentions express intent, not observed churn. Trend windows exclude the partial first and last months; complaint shares use completed records as their denominator. Broad or unresolved classifications may conceal specific access problems.",
+  "pack_sha256": "8db5fa05253020a6881d714ef31a744cac16d63fe3806861a0f228ede7dc00e6",
+  "priority_area": "access"
+}

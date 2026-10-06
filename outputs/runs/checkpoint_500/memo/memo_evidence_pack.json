@@ -1,0 +1,404 @@
+{
+  "area_claims": [
+    "A001: usability complaint_count = 62",
+    "A002: usability severity_sum = 155",
+    "A003: usability mean_severity = 2.500000",
+    "A004: usability share_of_complaints_pct = 26.16",
+    "A005: usability cancellation_count = 7",
+    "A006: usability sev4plus_count = 0",
+    "A007: usability sev4plus_share_of_area_pct = 0.0",
+    "A008: billing_support complaint_count = 50",
+    "A009: billing_support severity_sum = 151",
+    "A010: billing_support mean_severity = 3.020000",
+    "A011: billing_support share_of_complaints_pct = 21.1",
+    "A012: billing_support cancellation_count = 6",
+    "A013: billing_support sev4plus_count = 4",
+    "A014: billing_support sev4plus_share_of_area_pct = 8.0",
+    "A015: playback complaint_count = 40",
+    "A016: playback severity_sum = 134",
+    "A017: playback mean_severity = 3.350000",
+    "A018: playback share_of_complaints_pct = 16.88",
+    "A019: playback cancellation_count = 5",
+    "A020: playback sev4plus_count = 17",
+    "A021: playback sev4plus_share_of_area_pct = 42.5",
+    "A022: other complaint_count = 48",
+    "A023: other severity_sum = 93",
+    "A024: other mean_severity = 1.937500",
+    "A025: other share_of_complaints_pct = 20.25",
+    "A026: other cancellation_count = 6",
+    "A027: other sev4plus_count = 0",
+    "A028: other sev4plus_share_of_area_pct = 0.0",
+    "A029: catalog complaint_count = 21",
+    "A030: catalog severity_sum = 56",
+    "A031: catalog mean_severity = 2.666667",
+    "A032: catalog share_of_complaints_pct = 8.86",
+    "A033: catalog cancellation_count = 1",
+    "A034: catalog sev4plus_count = 0",
+    "A035: catalog sev4plus_share_of_area_pct = 0.0",
+    "A036: access complaint_count = 9",
+    "A037: access severity_sum = 35",
+    "A038: access mean_severity = 3.888889",
+    "A039: access share_of_complaints_pct = 3.8",
+    "A040: access cancellation_count = 1",
+    "A041: access sev4plus_count = 7",
+    "A042: access sev4plus_share_of_area_pct = 77.78",
+    "A043: downloads complaint_count = 7",
+    "A044: downloads severity_sum = 23",
+    "A045: downloads mean_severity = 3.285714",
+    "A046: downloads share_of_complaints_pct = 2.95",
+    "A047: downloads cancellation_count = 3",
+    "A048: downloads sev4plus_count = 2",
+    "A049: downloads sev4plus_share_of_area_pct = 28.57"
+  ],
+  "coverage_claims": [
+    "K001: source_rows = 500",
+    "K002: completed_records = 500",
+    "K003: quarantined_records = 0",
+    "K004: pending_records = 0",
+    "K005: complaint_or_cancellation_records = 237"
+  ],
+  "limitations": [
+    "Self-selected public reviews; not a customer population.",
+    "Cancellation = expressed intent in text, not observed churn.",
+    "First (2022-05) and last (2023-11) months are partial and excluded from trend windows."
+  ],
+  "pack_sha256": "72398786388a64e656494600cb05c79a6c16711777dd6a00f4d148348a22d7ae",
+  "ranking_rule": "priority_score = complaint_count x mean_severity = severity_sum; complaint and cancellation records only",
+  "top_issues": [
+    {
+      "claims": {
+        "complaint_count": "40 [C001]",
+        "mean_severity": "2.950000 [C003]",
+        "priority_score": "118 [C004]",
+        "severity_sum": "118 [C002]"
+      },
+      "description": "Reviewers say free listening limits song selection and skips or make the app difficult to use without Premium.",
+      "examples": [
+        {
+          "quote": "It's impossible to use the app without prime And the recommended song is so bad",
+          "review_id": "074efbfd-f69e-46ca-9cea-e5204a192a2a",
+          "severity": 4
+        },
+        {
+          "quote": "This was fine till the last update, now you can't even pick a certain song without Spotify premium, and now you can only skip 6 songs, like please just let the ",
+          "review_id": "d146397f-4a94-4980-be00-ae9212eca3a7",
+          "severity": 3
+        },
+        {
+          "quote": "and so usless i thought this app is good but no",
+          "review_id": "21915fcd-9a35-48ba-b277-6296c4154603",
+          "severity": 3
+        }
+      ],
+      "issue_id": "billing.premium_paywall",
+      "name": "Free Listening Restrictions",
+      "rank": 1
+    },
+    {
+      "claims": {
+        "complaint_count": "46 [C005]",
+        "mean_severity": "1.978261 [C007]",
+        "priority_score": "91 [C008]",
+        "severity_sum": "91 [C006]"
+      },
+      "description": "Reviewers express broad dissatisfaction with the app or report being unable to open Spotify Wrapped.",
+      "examples": [
+        {
+          "quote": "I can't open my spotify wrap 2022...",
+          "review_id": "c1726764-f0ce-4abc-ad9e-6cd143e1b2c7",
+          "severity": 3
+        },
+        {
+          "quote": "I hate application",
+          "review_id": "1db044db-d184-4335-877c-d8fc364b282e",
+          "severity": 2
+        },
+        {
+          "quote": "Worst experience for listening song",
+          "review_id": "530b7128-1b64-46a7-81ad-d69c4bf821cf",
+          "severity": 2
+        }
+      ],
+      "issue_id": "other.general",
+      "name": "General App Dissatisfaction",
+      "rank": 2
+    },
+    {
+      "claims": {
+        "complaint_count": "33 [C009]",
+        "mean_severity": "2.393939 [C011]",
+        "priority_score": "79 [C012]",
+        "severity_sum": "79 [C010]"
+      },
+      "description": "Reviewers complain that frequent or lengthy ads interrupt music listening.",
+      "examples": [
+        {
+          "quote": "otherwise this app is worst it have adds every sec",
+          "review_id": "10775595-01b9-4623-9163-51619e2a0fa9",
+          "severity": 3
+        },
+        {
+          "quote": "Listen to my music almost everyday,this app is great. But the bad thing is that it gives too many ads, i would have hiven it 5 stars. Apart from that this app i",
+          "review_id": "5e42046c-b29b-4035-ba83-a8e222789e98",
+          "severity": 3
+        },
+        {
+          "quote": "DON'T DOWNLOAD THIS:Such a worst app ... that always plays adds instead of songs ...if want to enjoy music free without adds don't download this app ..",
+          "review_id": "cf6166ae-d71a-4839-9add-088645ad3b78",
+          "severity": 3
+        }
+      ],
+      "issue_id": "usability.ads",
+      "name": "Too Many Ads",
+      "rank": 3
+    },
+    {
+      "claims": {
+        "complaint_count": "17 [C013]",
+        "mean_severity": "3.470588 [C015]",
+        "priority_score": "59 [C016]",
+        "severity_sum": "59 [C014]"
+      },
+      "description": "Reviewers say songs stop randomly or the app will not start playback.",
+      "examples": [
+        {
+          "quote": "stopped letting me play anything",
+          "review_id": "a7b7539a-c8d3-4f4e-9edd-d46cd1b1fd12",
+          "severity": 4
+        },
+        {
+          "quote": "I have a Samsung and after a week of using this app it like wouldn't let me listen to music",
+          "review_id": "d3b74f36-aa48-42af-ae4a-d4a8b0499a60",
+          "severity": 4
+        },
+        {
+          "quote": "It stops randomly.",
+          "review_id": "1cdc5bb2-8e8d-4267-8853-6c1dd4c7ef13",
+          "severity": 4
+        }
+      ],
+      "issue_id": "playback.playback_stops_or_skips",
+      "name": "Playback Stops or Won't Start",
+      "rank": 4
+    },
+    {
+      "claims": {
+        "complaint_count": "17 [C017]",
+        "mean_severity": "2.529412 [C019]",
+        "priority_score": "43 [C020]",
+        "severity_sum": "43 [C018]"
+      },
+      "description": "Reviewers dislike updates that change the layout or make the app less user-friendly or harder to use.",
+      "examples": [
+        {
+          "quote": "how every update they make seems to make the app LESS user friendly",
+          "review_id": "0070e713-4cb7-4d78-954f-1764d5593c91",
+          "severity": 3
+        },
+        {
+          "quote": "the app is also not showing lyrics and I also can't add songs to queue",
+          "review_id": "7f27bbab-ef19-4fb1-80d8-cd014da3e002",
+          "severity": 3
+        },
+        {
+          "quote": "Like this new update sucks! Old SPOTIFY was better! Just give up your dreams I want to play my song",
+          "review_id": "3feb5ba7-4a0d-47e0-a803-eb2dce85dd5e",
+          "severity": 3
+        }
+      ],
+      "issue_id": "usability.ui_change",
+      "name": "Unpopular Interface Changes",
+      "rank": 5
+    },
+    {
+      "claims": {
+        "complaint_count": "8 [C021]",
+        "mean_severity": "3.750000 [C023]",
+        "priority_score": "30 [C024]",
+        "severity_sum": "30 [C022]"
+      },
+      "description": "Reviewers report being logged out, rejected passwords, or errors that prevent them from accessing their accounts.",
+      "examples": [
+        {
+          "quote": "I can't login to the app, it keep saying that there's no internet connection, whereas everything else on my phone is connected to the internet.",
+          "review_id": "12efd15d-4d4f-4a71-8e71-69d03b6f983a",
+          "severity": 4
+        },
+        {
+          "quote": "It not letting me into my account and there are to many ads",
+          "review_id": "32fb340f-4f9f-4551-8dae-755221e58d6a",
+          "severity": 4
+        },
+        {
+          "quote": "and additionally now I am not even able to log in into my application even after trying for several time",
+          "review_id": "9ce5f16c-aef0-48eb-ace1-91905796bc3d",
+          "severity": 4
+        }
+      ],
+      "issue_id": "access.login_failure",
+      "name": "Unable to Log In",
+      "rank": 6
+    },
+    {
+      "claims": {
+        "complaint_count": "7 [C025]",
+        "mean_severity": "3.428571 [C027]",
+        "priority_score": "24 [C028]",
+        "severity_sum": "24 [C026]"
+      },
+      "description": "Reviewers report connection failures or no-internet errors despite having a working connection.",
+      "examples": [
+        {
+          "quote": "It doesn't work with mobile data on my phone!!",
+          "review_id": "f87fb3d9-501a-4119-bc40-b0669270ae44",
+          "severity": 4
+        },
+        {
+          "quote": "Always say no internet connection Most of my favourite Bollywood songs are not present",
+          "review_id": "3df77a78-ad9a-4456-8be8-8178ffd43d67",
+          "severity": 4
+        },
+        {
+          "quote": "It keeps saying I don't have internet connection while I do",
+          "review_id": "98d936e1-fd1d-475a-89ee-0e1517cb60d3",
+          "severity": 4
+        }
+      ],
+      "issue_id": "playback.connection_error",
+      "name": "False No-Connection Errors",
+      "rank": 7
+    },
+    {
+      "claims": {
+        "complaint_count": "7 [C029]",
+        "mean_severity": "3.285714 [C031]",
+        "priority_score": "23 [C032]",
+        "severity_sum": "23 [C030]"
+      },
+      "description": "Reviewers describe trouble purchasing or signing up for Premium, or features and access they expected from a subscription being unavailable.",
+      "examples": [
+        {
+          "quote": "I paid my subscription and im still getting a pause subscription screen and can't access my music...... help me",
+          "review_id": "16929558-ce1e-4b87-8738-a1de3f557f66",
+          "severity": 4
+        },
+        {
+          "quote": "It's need to skip any song without premium pack, and when I wanna purchase subscription it's show me a blank page",
+          "review_id": "398566f7-2519-40e6-a2f4-6676657a18a7",
+          "severity": 4
+        },
+        {
+          "quote": "cant sign up for individual premium",
+          "review_id": "1d1480fb-0142-46da-8570-45bf3983bf6d",
+          "severity": 3
+        }
+      ],
+      "issue_id": "billing.subscription_entitlement",
+      "name": "Premium Access Problems",
+      "rank": 8
+    },
+    {
+      "claims": {
+        "complaint_count": "8 [C033]",
+        "mean_severity": "2.875000 [C035]",
+        "priority_score": "23 [C036]",
+        "severity_sum": "23 [C034]"
+      },
+      "description": "Reviewers say lyrics are missing from some songs or fail to load.",
+      "examples": [
+        {
+          "quote": "Don't know why but they are forcing to get premium..... So now they have stopped the lyrics the app said get premium for the lyrics and this used to be my favou",
+          "review_id": "c374ef2d-3676-4c5e-a0d2-02242a254f22",
+          "severity": 3
+        },
+        {
+          "quote": "Some of the song lyrics couldn't load",
+          "review_id": "d218ffde-42f9-48f8-a793-832507454b35",
+          "severity": 3
+        },
+        {
+          "quote": "sometime the lyrics don't show",
+          "review_id": "e0127547-4edd-44a0-8d5e-e8398bc07086",
+          "severity": 3
+        }
+      ],
+      "issue_id": "catalog.lyrics",
+      "name": "Lyrics Missing or Not Loading",
+      "rank": 9
+    },
+    {
+      "claims": {
+        "complaint_count": "6 [C037]",
+        "mean_severity": "3.833333 [C039]",
+        "priority_score": "23 [C040]",
+        "severity_sum": "23 [C038]"
+      },
+      "description": "Reviewers say the app crashes, shuts down, or remains stuck on a loading or black screen.",
+      "examples": [
+        {
+          "quote": "Have been using Spotify for a very long time but now the app is just crashing since the latest update.",
+          "review_id": "4a806587-0dde-4fb4-b4f1-f5c7d197c927",
+          "severity": 4
+        },
+        {
+          "quote": "Black screen of death. Having to Uninstaller and reinstall after closing and opening app 5x to see if it would work.",
+          "review_id": "065c418e-7f18-42a3-b241-fe693b7a2b0c",
+          "severity": 4
+        },
+        {
+          "quote": "The latest update has caused my app to crash I cant open the app please fix.",
+          "review_id": "55cc3abf-c295-4591-8c3a-78085cfdefaa",
+          "severity": 4
+        }
+      ],
+      "issue_id": "playback.crash_freeze",
+      "name": "App Crashes or Gets Stuck",
+      "rank": 10
+    }
+  ],
+  "trend_claims": [
+    "T001: access early_complaints = 2",
+    "T002: access early_completed_records = 129",
+    "T003: access early_share_pct = 1.55",
+    "T004: access late_complaints = 6",
+    "T005: access late_completed_records = 227",
+    "T006: access late_share_pct = 2.64",
+    "T007: billing_support early_complaints = 9",
+    "T008: billing_support early_completed_records = 129",
+    "T009: billing_support early_share_pct = 6.98",
+    "T010: billing_support late_complaints = 30",
+    "T011: billing_support late_completed_records = 227",
+    "T012: billing_support late_share_pct = 13.22",
+    "T013: catalog early_complaints = 4",
+    "T014: catalog early_completed_records = 129",
+    "T015: catalog early_share_pct = 3.1",
+    "T016: catalog late_complaints = 10",
+    "T017: catalog late_completed_records = 227",
+    "T018: catalog late_share_pct = 4.41",
+    "T019: downloads early_complaints = 3",
+    "T020: downloads early_completed_records = 129",
+    "T021: downloads early_share_pct = 2.33",
+    "T022: downloads late_complaints = 2",
+    "T023: downloads late_completed_records = 227",
+    "T024: downloads late_share_pct = 0.88",
+    "T025: other early_complaints = 4",
+    "T026: other early_completed_records = 129",
+    "T027: other early_share_pct = 3.1",
+    "T028: other late_complaints = 34",
+    "T029: other late_completed_records = 227",
+    "T030: other late_share_pct = 14.98",
+    "T031: playback early_complaints = 5",
+    "T032: playback early_completed_records = 129",
+    "T033: playback early_share_pct = 3.88",
+    "T034: playback late_complaints = 21",
+    "T035: playback late_completed_records = 227",
+    "T036: playback late_share_pct = 9.25",
+    "T037: usability early_complaints = 12",
+    "T038: usability early_completed_records = 129",
+    "T039: usability early_share_pct = 9.3",
+    "T040: usability late_complaints = 27",
+    "T041: usability late_completed_records = 227",
+    "T042: usability late_share_pct = 11.89"
+  ],
+  "trend_windows": "early = 2022-06..2022-11, late = 2023-05..2023-10 (full months only); share = area complaints / completed records"
+}

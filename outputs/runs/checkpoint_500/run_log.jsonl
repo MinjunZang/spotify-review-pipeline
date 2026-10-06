@@ -1,0 +1,18 @@
+{"ts": "2026-10-06T13:21:39-0700", "stage": "ingest", "event": "stage_start"}
+{"ts": "2026-10-06T13:21:39-0700", "stage": "ingest", "event": "stage_end", "seconds": 0.01}
+{"ts": "2026-10-06T13:21:39-0700", "stage": "enrich", "event": "stage_start"}
+{"ts": "2026-10-06T13:21:39-0700", "run_id": "20261006T132139-276c65", "stage": "enrich", "event": "start", "phase": "initial", "label_config": "gpt-6-luna|effort=none|enrich_v1@60e05ad9d03f|schema-v1", "provider": "openai", "model": "gpt-6-luna", "effort": "none", "batch_size": 50, "workers": 2, "budget_usd": 0.1, "prior_spend_usd": 0.0, "counts_before": {"pending": 500}, "cache_hits_at_start": 0, "pending_distinct_texts": 479}
+{"ts": "2026-10-06T13:22:31-0700", "run_id": "20261006T132139-276c65", "stage": "enrich", "event": "stop", "stop_reason": "no_pending_work", "batches_done": 10, "wall_clock_s": 51.53, "counts_after": {"completed": 500}, "ledger": {"cap_usd": 0.1, "spent_usd": 0.01013, "reserved_usd": 0.0}}
+{"ts": "2026-10-06T13:22:31-0700", "stage": "enrich", "event": "stage_end", "seconds": 51.53}
+{"ts": "2026-10-06T13:22:31-0700", "stage": "records", "event": "stage_start"}
+{"ts": "2026-10-06T13:22:31-0700", "stage": "records", "event": "stage_end", "seconds": 0.03}
+{"ts": "2026-10-06T13:22:31-0700", "stage": "verify", "event": "stage_start"}
+{"ts": "2026-10-06T13:23:27-0700", "stage": "verify", "event": "stage_end", "seconds": 56.61}
+{"ts": "2026-10-06T13:23:27-0700", "stage": "group", "event": "stage_start"}
+{"ts": "2026-10-06T13:23:38-0700", "stage": "group", "event": "stage_end", "seconds": 10.88}
+{"ts": "2026-10-06T13:23:38-0700", "stage": "rank", "event": "stage_start"}
+{"ts": "2026-10-06T13:23:38-0700", "stage": "rank", "event": "stage_end", "seconds": 0.01}
+{"ts": "2026-10-06T13:23:38-0700", "stage": "aggregates", "event": "stage_start"}
+{"ts": "2026-10-06T13:23:38-0700", "stage": "aggregates", "event": "stage_end", "seconds": 0.01}
+{"ts": "2026-10-06T13:23:38-0700", "stage": "memo", "event": "stage_start"}
+{"ts": "2026-10-06T13:23:53-0700", "stage": "memo", "event": "stage_end", "seconds": 15.19}

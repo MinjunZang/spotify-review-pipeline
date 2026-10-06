@@ -15,3 +15,5 @@ node_modules/
 .DS_Store
 local-reference.json
 self-check.json
+dashboard/node_modules/
+dashboard/.vercel/

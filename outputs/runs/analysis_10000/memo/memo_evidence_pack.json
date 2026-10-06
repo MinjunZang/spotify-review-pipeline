@@ -1,0 +1,404 @@
+{
+  "area_claims": [
+    "A001: usability complaint_count = 1280",
+    "A002: usability severity_sum = 3237",
+    "A003: usability mean_severity = 2.528906",
+    "A004: usability share_of_complaints_pct = 29.12",
+    "A005: usability cancellation_count = 144",
+    "A006: usability sev4plus_count = 19",
+    "A007: usability sev4plus_share_of_area_pct = 1.48",
+    "A008: billing_support complaint_count = 932",
+    "A009: billing_support severity_sum = 2654",
+    "A010: billing_support mean_severity = 2.847639",
+    "A011: billing_support share_of_complaints_pct = 21.2",
+    "A012: billing_support cancellation_count = 174",
+    "A013: billing_support sev4plus_count = 19",
+    "A014: billing_support sev4plus_share_of_area_pct = 2.04",
+    "A015: playback complaint_count = 653",
+    "A016: playback severity_sum = 2085",
+    "A017: playback mean_severity = 3.192956",
+    "A018: playback share_of_complaints_pct = 14.85",
+    "A019: playback cancellation_count = 57",
+    "A020: playback sev4plus_count = 179",
+    "A021: playback sev4plus_share_of_area_pct = 27.41",
+    "A022: other complaint_count = 1022",
+    "A023: other severity_sum = 2030",
+    "A024: other mean_severity = 1.986301",
+    "A025: other share_of_complaints_pct = 23.25",
+    "A026: other cancellation_count = 66",
+    "A027: other sev4plus_count = 4",
+    "A028: other sev4plus_share_of_area_pct = 0.39",
+    "A029: catalog complaint_count = 263",
+    "A030: catalog severity_sum = 756",
+    "A031: catalog mean_severity = 2.874525",
+    "A032: catalog share_of_complaints_pct = 5.98",
+    "A033: catalog cancellation_count = 20",
+    "A034: catalog sev4plus_count = 10",
+    "A035: catalog sev4plus_share_of_area_pct = 3.8",
+    "A036: access complaint_count = 150",
+    "A037: access severity_sum = 578",
+    "A038: access mean_severity = 3.853333",
+    "A039: access share_of_complaints_pct = 3.41",
+    "A040: access cancellation_count = 10",
+    "A041: access sev4plus_count = 122",
+    "A042: access sev4plus_share_of_area_pct = 81.33",
+    "A043: downloads complaint_count = 96",
+    "A044: downloads severity_sum = 311",
+    "A045: downloads mean_severity = 3.239583",
+    "A046: downloads share_of_complaints_pct = 2.18",
+    "A047: downloads cancellation_count = 9",
+    "A048: downloads sev4plus_count = 27",
+    "A049: downloads sev4plus_share_of_area_pct = 28.12"
+  ],
+  "coverage_claims": [
+    "K001: source_rows = 10000",
+    "K002: completed_records = 9996",
+    "K003: quarantined_records = 4",
+    "K004: pending_records = 0",
+    "K005: complaint_or_cancellation_records = 4396"
+  ],
+  "limitations": [
+    "Self-selected public reviews; not a customer population.",
+    "Cancellation = expressed intent in text, not observed churn.",
+    "First (2022-05) and last (2023-11) months are partial and excluded from trend windows."
+  ],
+  "pack_sha256": "8db5fa05253020a6881d714ef31a744cac16d63fe3806861a0f228ede7dc00e6",
+  "ranking_rule": "priority_score = complaint_count x mean_severity = severity_sum; complaint and cancellation records only",
+  "top_issues": [
+    {
+      "claims": {
+        "complaint_count": "771 [C001]",
+        "mean_severity": "2.876783 [C003]",
+        "priority_score": "2218 [C004]",
+        "severity_sum": "2218 [C002]"
+      },
+      "description": "Customers feel basic listening features, such as choosing songs or skipping tracks, require a Premium subscription.",
+      "examples": [
+        {
+          "quote": "We cannot play music without premion what is this app is ruined",
+          "review_id": "4aaf911e-2ab6-4ccb-a0b7-4c6336f729c8",
+          "severity": 4
+        },
+        {
+          "quote": "It's impossible to use the app without prime And the recommended song is so bad",
+          "review_id": "074efbfd-f69e-46ca-9cea-e5204a192a2a",
+          "severity": 4
+        },
+        {
+          "quote": "It used to be good but now you can even playback unless you subscribe 💀",
+          "review_id": "fa15fbe5-08d0-43f7-ae0c-f174e1d69985",
+          "severity": 4
+        }
+      ],
+      "issue_id": "billing.premium_paywall",
+      "name": "Too Much Behind Premium",
+      "rank": 1
+    },
+    {
+      "claims": {
+        "complaint_count": "1008 [C005]",
+        "mean_severity": "1.994048 [C007]",
+        "priority_score": "2010 [C008]",
+        "severity_sum": "2010 [C006]"
+      },
+      "description": "Customers describe broad app usability, access, update, or privacy concerns without a more specific problem.",
+      "examples": [
+        {
+          "quote": "Developer's, You collect to much of my personal info, then it states I can delete all of my personal info.",
+          "review_id": "9ec6712e-a862-4605-ae0e-e6998105f921",
+          "severity": 5
+        },
+        {
+          "quote": "But in Iran, I can't use this app",
+          "review_id": "e379efda-83fe-4ce4-8cef-8474060b47cf",
+          "severity": 4
+        },
+        {
+          "quote": "my account and playlist and pretty much everything on the mobile app does not work",
+          "review_id": "99566d17-45c3-4f4e-86f0-1bef74b8c92a",
+          "severity": 4
+        }
+      ],
+      "issue_id": "other.general",
+      "name": "General App Problems",
+      "rank": 2
+    },
+    {
+      "claims": {
+        "complaint_count": "593 [C009]",
+        "mean_severity": "2.467116 [C011]",
+        "priority_score": "1463 [C012]",
+        "severity_sum": "1463 [C010]"
+      },
+      "description": "Customers report frequent, repetitive, loud, or prolonged ads interrupting listening.",
+      "examples": [
+        {
+          "quote": "stuck on a ad for 1-2 hours",
+          "review_id": "3eb10bc4-1544-4cd2-9146-d2451fdb0aa0",
+          "severity": 4
+        },
+        {
+          "quote": "Volume of ads is way louder than the volume of the music. Makes the app unusable.",
+          "review_id": "933b1cf2-8fa9-46aa-9a06-85fd89533a99",
+          "severity": 4
+        },
+        {
+          "quote": "Ads keep replaying and it's the same two!?",
+          "review_id": "14638caf-d87c-4568-b1dc-405fc2a63acd",
+          "severity": 4
+        }
+      ],
+      "issue_id": "usability.ads",
+      "name": "Too Many or Disruptive Ads",
+      "rank": 3
+    },
+    {
+      "claims": {
+        "complaint_count": "301 [C013]",
+        "mean_severity": "3.186047 [C015]",
+        "priority_score": "959 [C016]",
+        "severity_sum": "959 [C014]"
+      },
+      "description": "Customers report songs stopping, playing only partially, or playing different tracks than selected.",
+      "examples": [
+        {
+          "quote": "Absolutely can't use it anymore, can't skip to particular part in songs , can't use skip button or replay button , the app won't play the songs next but will pl",
+          "review_id": "9eb843c6-ab2d-459d-8507-5b8128279fcc",
+          "severity": 4
+        },
+        {
+          "quote": "Worked fine for a week or so. Could listen to anything, change songs however I wanted. Now the entire app doesn't work, plays a song I didn't select, only plays",
+          "review_id": "1f4afea5-6442-4239-9cb0-e6fde3fe3f99",
+          "severity": 4
+        },
+        {
+          "quote": "Idk why its was working fine till earlier it's stop playing music and when I try to play anything it so I had try to Uninstalled it and work fine for a min than",
+          "review_id": "f9dd2c8b-87f1-4ff5-9739-a44f02b45184",
+          "severity": 4
+        }
+      ],
+      "issue_id": "playback.playback_stops_or_skips",
+      "name": "Playback Stops or Skips",
+      "rank": 4
+    },
+    {
+      "claims": {
+        "complaint_count": "332 [C017]",
+        "mean_severity": "2.301205 [C019]",
+        "priority_score": "764 [C020]",
+        "severity_sum": "764 [C018]"
+      },
+      "description": "Customers dislike recent interface changes, removed features, or updates that make the app harder to use.",
+      "examples": [
+        {
+          "quote": "Spotify was great back in 2019, then they ruined the UI and they've refused to listen to any user feedback for the past 3 years. bring back the old library UI a",
+          "review_id": "77c8c8a4-7819-412a-8a09-cf83e8cc9c59",
+          "severity": 4
+        },
+        {
+          "quote": "I don't like the new update can't find anything I can't play any of mu songs thanks Spotify",
+          "review_id": "c46ee36a-6a36-4bbb-85f5-4d5d1b04aef8",
+          "severity": 4
+        },
+        {
+          "quote": "this new UI makes it unusable",
+          "review_id": "1a2adc8e-1a4a-4e5b-9a6a-563a9c0cab4e",
+          "severity": 4
+        }
+      ],
+      "issue_id": "usability.ui_change",
+      "name": "Unwanted Interface Changes",
+      "rank": 5
+    },
+    {
+      "claims": {
+        "complaint_count": "162 [C021]",
+        "mean_severity": "2.938272 [C023]",
+        "priority_score": "476 [C024]",
+        "severity_sum": "476 [C022]"
+      },
+      "description": "Customers report problems with shuffle, repeat, song queuing, or controlling which tracks play.",
+      "examples": [
+        {
+          "quote": "I can't repeat songs which is litteraly what I do 40% of the time",
+          "review_id": "371fcb4b-7ed3-4cdc-9b63-8501bac4eee9",
+          "severity": 4
+        },
+        {
+          "quote": "I don't like this app because they have shuffled the songs so I can't listen to them",
+          "review_id": "40ddeafd-a71d-4757-8103-a86b47ba18ea",
+          "severity": 3
+        },
+        {
+          "quote": "No dislike button, shuffle isn't an option until you click on a song in the playlist",
+          "review_id": "e2466f8d-ab7d-4a8f-8f29-c6726c45d717",
+          "severity": 3
+        }
+      ],
+      "issue_id": "usability.queue_shuffle_controls",
+      "name": "Queue and Shuffle Controls",
+      "rank": 6
+    },
+    {
+      "claims": {
+        "complaint_count": "115 [C025]",
+        "mean_severity": "3.886957 [C027]",
+        "priority_score": "447 [C028]",
+        "severity_sum": "447 [C026]"
+      },
+      "description": "Customers cannot sign in to their accounts, sometimes despite having an internet connection.",
+      "examples": [
+        {
+          "quote": "unable to log in to my own account",
+          "review_id": "91b3f409-7fcf-472b-a308-29361707085e",
+          "severity": 5
+        },
+        {
+          "quote": "cannot log in",
+          "review_id": "13567290-9860-4cbe-ac9a-775b8407fa99",
+          "severity": 4
+        },
+        {
+          "quote": "Useless App I Faced Sign in Problam And Showing No Internet Connection Please Fix It😡",
+          "review_id": "c4da3f91-0e39-4eb9-b992-43c75ed5ca66",
+          "severity": 4
+        }
+      ],
+      "issue_id": "access.login_failure",
+      "name": "Unable to Log In",
+      "rank": 7
+    },
+    {
+      "claims": {
+        "complaint_count": "120 [C029]",
+        "mean_severity": "3.633333 [C031]",
+        "priority_score": "436 [C032]",
+        "severity_sum": "436 [C030]"
+      },
+      "description": "The app crashes, closes, or gets stuck on a blank or logo screen.",
+      "examples": [
+        {
+          "quote": "App closing automatically when playing songs",
+          "review_id": "40abba11-6cce-4eff-ae74-9ec4579550e0",
+          "severity": 4
+        },
+        {
+          "quote": "Not happy 😒, Spotify keeps crashing on my android, I'll open it and it will be a black screen, I delete and install it again and it works, I've had to do this 3",
+          "review_id": "73724807-3061-4a00-86fe-64065dbd8d74",
+          "severity": 4
+        },
+        {
+          "quote": "After the latest update, I have not been able to use my Spotify account. Everytime I try playing a song, it immediately stops and exits the app. I was forced to",
+          "review_id": "23cf7b22-c8dd-4f19-b37e-1f6df6fc2a05",
+          "severity": 4
+        }
+      ],
+      "issue_id": "playback.crash_freeze",
+      "name": "App Crashes or Freezes",
+      "rank": 8
+    },
+    {
+      "claims": {
+        "complaint_count": "103 [C033]",
+        "mean_severity": "2.912621 [C035]",
+        "priority_score": "300 [C036]",
+        "severity_sum": "300 [C034]"
+      },
+      "description": "Customers have trouble accessing or managing their library, liked songs, playlists, or podcast queue.",
+      "examples": [
+        {
+          "quote": "Doesnt load my liked playlist even after reinstall.",
+          "review_id": "b818a92c-a7aa-4877-b49a-02c53430e29f",
+          "severity": 4
+        },
+        {
+          "quote": "it took me off of my premium family plan even though NO info changed",
+          "review_id": "4cfa47ee-ceca-4091-bdeb-e994fe133097",
+          "severity": 4
+        },
+        {
+          "quote": "It won't show any of my Playlists or library-- the screen is black and no songs are available.",
+          "review_id": "056c340f-c7ad-42d8-a275-37e46f1f4f24",
+          "severity": 4
+        }
+      ],
+      "issue_id": "usability.library_playlist_management",
+      "name": "Library and Playlist Management",
+      "rank": 9
+    },
+    {
+      "claims": {
+        "complaint_count": "81 [C037]",
+        "mean_severity": "2.901235 [C039]",
+        "priority_score": "235 [C040]",
+        "severity_sum": "235 [C038]"
+      },
+      "description": "Customers report songs being removed or unavailable in the catalog.",
+      "examples": [
+        {
+          "quote": "All my playlists are suddenly empty, nothing I search plays",
+          "review_id": "f1070b3a-e6cb-4473-b971-83bab32afd11",
+          "severity": 4
+        },
+        {
+          "quote": "some of the song are getting removed and add",
+          "review_id": "cdf370da-8263-4661-b47c-6f46432c3c78",
+          "severity": 3
+        },
+        {
+          "quote": "What is this???? Why Spotify is removing songs from the app. There are so many good Bollywood songs that Spotify is removing from the app. We are paying to list",
+          "review_id": "49c6be74-4572-4622-abd9-e038baf10cc2",
+          "severity": 3
+        }
+      ],
+      "issue_id": "catalog.missing_content",
+      "name": "Songs Missing From Catalog",
+      "rank": 10
+    }
+  ],
+  "trend_claims": [
+    "T001: access early_complaints = 32",
+    "T002: access early_completed_records = 2648",
+    "T003: access early_share_pct = 1.21",
+    "T004: access late_complaints = 79",
+    "T005: access late_completed_records = 4523",
+    "T006: access late_share_pct = 1.75",
+    "T007: billing_support early_complaints = 107",
+    "T008: billing_support early_completed_records = 2648",
+    "T009: billing_support early_share_pct = 4.04",
+    "T010: billing_support late_complaints = 632",
+    "T011: billing_support late_completed_records = 4523",
+    "T012: billing_support late_share_pct = 13.97",
+    "T013: catalog early_complaints = 58",
+    "T014: catalog early_completed_records = 2648",
+    "T015: catalog early_share_pct = 2.19",
+    "T016: catalog late_complaints = 126",
+    "T017: catalog late_completed_records = 4523",
+    "T018: catalog late_share_pct = 2.79",
+    "T019: downloads early_complaints = 37",
+    "T020: downloads early_completed_records = 2648",
+    "T021: downloads early_share_pct = 1.4",
+    "T022: downloads late_complaints = 37",
+    "T023: downloads late_completed_records = 4523",
+    "T024: downloads late_share_pct = 0.82",
+    "T025: other early_complaints = 73",
+    "T026: other early_completed_records = 2648",
+    "T027: other early_share_pct = 2.76",
+    "T028: other late_complaints = 792",
+    "T029: other late_completed_records = 4523",
+    "T030: other late_share_pct = 17.51",
+    "T031: playback early_complaints = 190",
+    "T032: playback early_completed_records = 2648",
+    "T033: playback early_share_pct = 7.18",
+    "T034: playback late_complaints = 232",
+    "T035: playback late_completed_records = 4523",
+    "T036: playback late_share_pct = 5.13",
+    "T037: usability early_complaints = 286",
+    "T038: usability early_completed_records = 2648",
+    "T039: usability early_share_pct = 10.8",
+    "T040: usability late_complaints = 573",
+    "T041: usability late_completed_records = 4523",
+    "T042: usability late_share_pct = 12.67"
+  ],
+  "trend_windows": "early = 2022-06..2022-11, late = 2023-05..2023-10 (full months only); share = area complaints / completed records"
+}

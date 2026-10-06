@@ -1,0 +1,84 @@
+{
+  "code_version": "bc293b2",
+  "input": "/Users/test/Desktop/spotify-review-pipeline/data/cost_100.csv",
+  "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+  "invocations": [
+    {
+      "enrich_stop_reason": "no_pending_work",
+      "finished_at": "2026-10-06T13:21:04-0700",
+      "stage_seconds": {
+        "aggregates": 0.0,
+        "enrich": 25.71,
+        "group": 6.95,
+        "ingest": 0.0,
+        "memo": 8.21,
+        "rank": 0.0,
+        "records": 0.01,
+        "verify": 28.57
+      },
+      "stages": [
+        "ingest",
+        "enrich",
+        "records",
+        "verify",
+        "group",
+        "rank",
+        "aggregates",
+        "memo"
+      ],
+      "wall_clock_s": 69.49
+    },
+    {
+      "enrich_stop_reason": "no_pending_work",
+      "finished_at": "2026-10-06T13:21:04-0700",
+      "stage_seconds": {
+        "aggregates": 0.0,
+        "enrich": 0.0,
+        "group": 0.0,
+        "memo": 0.0,
+        "rank": 0.0,
+        "records": 0.01,
+        "verify": 0.0
+      },
+      "stages": [
+        "enrich",
+        "records",
+        "verify",
+        "group",
+        "rank",
+        "aggregates",
+        "memo"
+      ],
+      "wall_clock_s": 0.03
+    }
+  ],
+  "prompts": {
+    "enrich_v1": "60e05ad9d03f",
+    "group_v1": "3b594bed6ba2",
+    "memo_v1": "f1f824fe4b3e",
+    "verify_v1": "ec6d869e3ca7"
+  },
+  "run_name": "pilot",
+  "settings": {
+    "batch_size": 50,
+    "budget": 0.5,
+    "downstream_model": "gpt-6-luna",
+    "downstream_provider": "openai",
+    "enrich_effort": "none",
+    "enrich_model": "gpt-6-luna",
+    "enrich_provider": "openai",
+    "finalize": false,
+    "input": "/Users/test/Desktop/spotify-review-pipeline/data/cost_100.csv",
+    "max_batches": null,
+    "memo_effort": "low",
+    "name": "pilot",
+    "phase": "auto",
+    "rpm": 300,
+    "snapshot": null,
+    "time_limit": null,
+    "verify_model": "gemma4:e4b",
+    "verify_provider": "ollama",
+    "verify_sample": 20,
+    "workers": 1
+  }
+}

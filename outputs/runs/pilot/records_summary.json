@@ -1,0 +1,9 @@
+{
+  "by_status": {
+    "completed": 100
+  },
+  "completed_via_exact_text_cache": 0,
+  "finalized": false,
+  "quarantine_reasons": {},
+  "records": 100
+}

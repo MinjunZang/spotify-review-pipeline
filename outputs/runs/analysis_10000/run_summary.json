@@ -1,0 +1,91 @@
+{
+  "api_cost_usd": 0.1921,
+  "by_role": {
+    "enrich": {
+      "api_cost_usd": 0.1892,
+      "attempts": 204,
+      "cached_input_tokens": 274321,
+      "failed": 2,
+      "input_tokens": 536872,
+      "output_tokens": 320506,
+      "reasoning_tokens": 0,
+      "retries": 35,
+      "reviews_sent": 8586
+    },
+    "group": {
+      "api_cost_usd": 0.002,
+      "attempts": 1,
+      "cached_input_tokens": 0,
+      "failed": 0,
+      "input_tokens": 11625,
+      "output_tokens": 1712,
+      "reasoning_tokens": 0,
+      "retries": 0,
+      "reviews_sent": 0
+    },
+    "memo": {
+      "api_cost_usd": 0.0009,
+      "attempts": 1,
+      "cached_input_tokens": 0,
+      "failed": 0,
+      "input_tokens": 5116,
+      "output_tokens": 691,
+      "reasoning_tokens": 138,
+      "retries": 0,
+      "reviews_sent": 0
+    },
+    "verify": {
+      "api_cost_usd": 0.0,
+      "attempts": 8,
+      "cached_input_tokens": 0,
+      "failed": 0,
+      "input_tokens": 9860,
+      "output_tokens": 5109,
+      "reasoning_tokens": 0,
+      "retries": 0,
+      "reviews_sent": 200
+    }
+  },
+  "calls": 214,
+  "calls_with_unknown_cost": 0,
+  "enrich_first_call": "2026-10-06T13:24:10-07:00",
+  "enrich_invocations": [
+    {
+      "batches_done": 169,
+      "counts_after": {
+        "completed": 9996,
+        "quarantined": 4
+      },
+      "ledger": {
+        "cap_usd": 0.6,
+        "reserved_usd": 0.0,
+        "spent_usd": 0.189251
+      },
+      "phase": "initial",
+      "run_id": "20261006T132359-5ffd12",
+      "stop_reason": "no_pending_work",
+      "wall_clock_s": 489.89,
+      "workers": 4
+    }
+  ],
+  "enrich_last_call": "2026-10-06T13:32:09-07:00",
+  "enrich_span_h": 0.13,
+  "enrich_wall_clock_h": 0.14,
+  "error_types": {
+    "incomplete": 2
+  },
+  "label_config": "gpt-6-luna|effort=none|enrich_v1@60e05ad9d03f|schema-v1",
+  "note": "Costs are recomputed from logged usage x cost/rates.csv; compare with the OpenAI usage dashboard.",
+  "records": {
+    "by_status": {
+      "completed": 9996,
+      "quarantined": 4
+    },
+    "completed_via_exact_text_cache": 1552,
+    "finalized": false,
+    "quarantine_reasons": {
+      "quote_not_in_source; retry": 4
+    },
+    "records": 10000
+  }
+}

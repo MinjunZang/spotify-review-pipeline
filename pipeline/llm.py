@@ -239,6 +239,8 @@ PROVIDERS = {"openai": OpenAIProvider, "ollama": OllamaProvider, "fake": FakePro
 def make_provider(provider, model, effort, max_output_tokens, **kw):
     if provider == "fake" and os.environ.get("FAKE_FAIL_PLAN"):
         kw.setdefault("fail_plan", os.environ["FAKE_FAIL_PLAN"].split(","))
+    if provider == "fake" and os.environ.get("FAKE_LATENCY"):
+        kw.setdefault("latency", float(os.environ["FAKE_LATENCY"]))
     return PROVIDERS[provider](model=model, effort=effort, max_output_tokens=max_output_tokens, **kw)
 
 

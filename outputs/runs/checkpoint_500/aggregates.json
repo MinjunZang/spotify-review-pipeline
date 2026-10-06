@@ -1,0 +1,367 @@
+{
+  "areas": [
+    {
+      "area": "usability",
+      "cancellation_count": 7,
+      "complaint_count": 62,
+      "mean_severity": "2.500000",
+      "sev4plus_count": 0,
+      "sev4plus_share_of_area_pct": 0.0,
+      "severity_sum": 155,
+      "share_of_complaints_pct": 26.16
+    },
+    {
+      "area": "billing_support",
+      "cancellation_count": 6,
+      "complaint_count": 50,
+      "mean_severity": "3.020000",
+      "sev4plus_count": 4,
+      "sev4plus_share_of_area_pct": 8.0,
+      "severity_sum": 151,
+      "share_of_complaints_pct": 21.1
+    },
+    {
+      "area": "playback",
+      "cancellation_count": 5,
+      "complaint_count": 40,
+      "mean_severity": "3.350000",
+      "sev4plus_count": 17,
+      "sev4plus_share_of_area_pct": 42.5,
+      "severity_sum": 134,
+      "share_of_complaints_pct": 16.88
+    },
+    {
+      "area": "other",
+      "cancellation_count": 6,
+      "complaint_count": 48,
+      "mean_severity": "1.937500",
+      "sev4plus_count": 0,
+      "sev4plus_share_of_area_pct": 0.0,
+      "severity_sum": 93,
+      "share_of_complaints_pct": 20.25
+    },
+    {
+      "area": "catalog",
+      "cancellation_count": 1,
+      "complaint_count": 21,
+      "mean_severity": "2.666667",
+      "sev4plus_count": 0,
+      "sev4plus_share_of_area_pct": 0.0,
+      "severity_sum": 56,
+      "share_of_complaints_pct": 8.86
+    },
+    {
+      "area": "access",
+      "cancellation_count": 1,
+      "complaint_count": 9,
+      "mean_severity": "3.888889",
+      "sev4plus_count": 7,
+      "sev4plus_share_of_area_pct": 77.78,
+      "severity_sum": 35,
+      "share_of_complaints_pct": 3.8
+    },
+    {
+      "area": "downloads",
+      "cancellation_count": 3,
+      "complaint_count": 7,
+      "mean_severity": "3.285714",
+      "sev4plus_count": 2,
+      "sev4plus_share_of_area_pct": 28.57,
+      "severity_sum": 23,
+      "share_of_complaints_pct": 2.95
+    }
+  ],
+  "complaint_or_cancellation_records": 237,
+  "coverage": {
+    "completed_records": 500,
+    "source_rows": 500,
+    "status": {
+      "completed": 500
+    }
+  },
+  "generated_at": "2026-10-06T13:23:38-0700",
+  "intents": {
+    "cancellation": 29,
+    "complaint": 208,
+    "praise": 214,
+    "request": 14,
+    "unclear": 35
+  },
+  "monthly": {
+    "2022-05": {
+      "access": 0,
+      "billing_support": 1,
+      "catalog": 0,
+      "completed": 14,
+      "downloads": 1,
+      "other": 0,
+      "playback": 2,
+      "usability": 0
+    },
+    "2022-06": {
+      "access": 0,
+      "billing_support": 1,
+      "catalog": 1,
+      "completed": 19,
+      "downloads": 1,
+      "other": 0,
+      "playback": 1,
+      "usability": 2
+    },
+    "2022-07": {
+      "access": 1,
+      "billing_support": 0,
+      "catalog": 0,
+      "completed": 21,
+      "downloads": 0,
+      "other": 2,
+      "playback": 1,
+      "usability": 5
+    },
+    "2022-08": {
+      "access": 1,
+      "billing_support": 3,
+      "catalog": 1,
+      "completed": 31,
+      "downloads": 0,
+      "other": 1,
+      "playback": 0,
+      "usability": 2
+    },
+    "2022-09": {
+      "access": 0,
+      "billing_support": 3,
+      "catalog": 0,
+      "completed": 22,
+      "downloads": 1,
+      "other": 1,
+      "playback": 2,
+      "usability": 2
+    },
+    "2022-10": {
+      "access": 0,
+      "billing_support": 1,
+      "catalog": 1,
+      "completed": 18,
+      "downloads": 0,
+      "other": 0,
+      "playback": 0,
+      "usability": 0
+    },
+    "2022-11": {
+      "access": 0,
+      "billing_support": 1,
+      "catalog": 1,
+      "completed": 18,
+      "downloads": 1,
+      "other": 0,
+      "playback": 1,
+      "usability": 1
+    },
+    "2022-12": {
+      "access": 0,
+      "billing_support": 2,
+      "catalog": 2,
+      "completed": 21,
+      "downloads": 0,
+      "other": 2,
+      "playback": 2,
+      "usability": 4
+    },
+    "2023-01": {
+      "access": 1,
+      "billing_support": 0,
+      "catalog": 0,
+      "completed": 17,
+      "downloads": 0,
+      "other": 1,
+      "playback": 1,
+      "usability": 3
+    },
+    "2023-02": {
+      "access": 0,
+      "billing_support": 2,
+      "catalog": 1,
+      "completed": 23,
+      "downloads": 0,
+      "other": 0,
+      "playback": 3,
+      "usability": 2
+    },
+    "2023-03": {
+      "access": 0,
+      "billing_support": 0,
+      "catalog": 0,
+      "completed": 20,
+      "downloads": 1,
+      "other": 0,
+      "playback": 4,
+      "usability": 5
+    },
+    "2023-04": {
+      "access": 0,
+      "billing_support": 1,
+      "catalog": 1,
+      "completed": 21,
+      "downloads": 0,
+      "other": 1,
+      "playback": 2,
+      "usability": 3
+    },
+    "2023-05": {
+      "access": 1,
+      "billing_support": 4,
+      "catalog": 0,
+      "completed": 22,
+      "downloads": 0,
+      "other": 1,
+      "playback": 2,
+      "usability": 3
+    },
+    "2023-06": {
+      "access": 0,
+      "billing_support": 0,
+      "catalog": 0,
+      "completed": 19,
+      "downloads": 0,
+      "other": 2,
+      "playback": 5,
+      "usability": 3
+    },
+    "2023-07": {
+      "access": 0,
+      "billing_support": 0,
+      "catalog": 0,
+      "completed": 56,
+      "downloads": 2,
+      "other": 22,
+      "playback": 2,
+      "usability": 3
+    },
+    "2023-08": {
+      "access": 2,
+      "billing_support": 2,
+      "catalog": 1,
+      "completed": 26,
+      "downloads": 0,
+      "other": 0,
+      "playback": 4,
+      "usability": 1
+    },
+    "2023-09": {
+      "access": 0,
+      "billing_support": 1,
+      "catalog": 3,
+      "completed": 25,
+      "downloads": 0,
+      "other": 1,
+      "playback": 2,
+      "usability": 2
+    },
+    "2023-10": {
+      "access": 3,
+      "billing_support": 23,
+      "catalog": 6,
+      "completed": 79,
+      "downloads": 0,
+      "other": 8,
+      "playback": 6,
+      "usability": 15
+    },
+    "2023-11": {
+      "access": 0,
+      "billing_support": 5,
+      "catalog": 3,
+      "completed": 28,
+      "downloads": 0,
+      "other": 6,
+      "playback": 0,
+      "usability": 6
+    }
+  },
+  "needs_review_records": 70,
+  "notes": [
+    "Self-selected public reviews; not a customer population.",
+    "Cancellation = expressed intent in text, not observed churn.",
+    "First (2022-05) and last (2023-11) months are partial and excluded from trend windows."
+  ],
+  "trend": [
+    {
+      "area": "access",
+      "early_complaints": 2,
+      "early_completed_records": 129,
+      "early_share_pct": 1.55,
+      "early_window": "2022-06..2022-11",
+      "late_complaints": 6,
+      "late_completed_records": 227,
+      "late_share_pct": 2.64,
+      "late_window": "2023-05..2023-10"
+    },
+    {
+      "area": "billing_support",
+      "early_complaints": 9,
+      "early_completed_records": 129,
+      "early_share_pct": 6.98,
+      "early_window": "2022-06..2022-11",
+      "late_complaints": 30,
+      "late_completed_records": 227,
+      "late_share_pct": 13.22,
+      "late_window": "2023-05..2023-10"
+    },
+    {
+      "area": "catalog",
+      "early_complaints": 4,
+      "early_completed_records": 129,
+      "early_share_pct": 3.1,
+      "early_window": "2022-06..2022-11",
+      "late_complaints": 10,
+      "late_completed_records": 227,
+      "late_share_pct": 4.41,
+      "late_window": "2023-05..2023-10"
+    },
+    {
+      "area": "downloads",
+      "early_complaints": 3,
+      "early_completed_records": 129,
+      "early_share_pct": 2.33,
+      "early_window": "2022-06..2022-11",
+      "late_complaints": 2,
+      "late_completed_records": 227,
+      "late_share_pct": 0.88,
+      "late_window": "2023-05..2023-10"
+    },
+    {
+      "area": "other",
+      "early_complaints": 4,
+      "early_completed_records": 129,
+      "early_share_pct": 3.1,
+      "early_window": "2022-06..2022-11",
+      "late_complaints": 34,
+      "late_completed_records": 227,
+      "late_share_pct": 14.98,
+      "late_window": "2023-05..2023-10"
+    },
+    {
+      "area": "playback",
+      "early_complaints": 5,
+      "early_completed_records": 129,
+      "early_share_pct": 3.88,
+      "early_window": "2022-06..2022-11",
+      "late_complaints": 21,
+      "late_completed_records": 227,
+      "late_share_pct": 9.25,
+      "late_window": "2023-05..2023-10"
+    },
+    {
+      "area": "usability",
+      "early_complaints": 12,
+      "early_completed_records": 129,
+      "early_share_pct": 9.3,
+      "early_window": "2022-06..2022-11",
+      "late_complaints": 27,
+      "late_completed_records": 227,
+      "late_share_pct": 11.89,
+      "late_window": "2023-05..2023-10"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+[
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "complaint",
+      "severity": 2,
+      "topic": "other"
+    },
+    "intent_agree": true,
+    "review_id": "3e82cf28-6b0a-4980-902c-b6aa154d353a",
+    "sentiment_abs_diff": 0.1,
+    "severity_abs_diff": 1,
+    "text": "Aakhir kar spotify ne bhi apni bhikaariyo vali aukaat dikha di \"Gadar karbe\" Chanda mangna got real Bhikaariyo ko training dena bhi shuru kardo haramiyo",
+    "topic_agree": false,
+    "verifier": {
+      "intent": "complaint",
+      "severity": 3,
+      "topic": "billing"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "cancellation",
+      "severity": 1,
+      "topic": "other"
+    },
+    "intent_agree": true,
+    "review_id": "486d1d7a-d6f6-41ea-81ad-ed875452729c",
+    "sentiment_abs_diff": 0.3,
+    "severity_abs_diff": 4,
+    "text": "Vary bad experience.i am uninstalling this app they burn quran and i will bycot this app as it is launched by swedan 🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕",
+    "topic_agree": true,
+    "verifier": {
+      "intent": "cancellation",
+      "severity": 5,
+      "topic": "other"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "praise",
+      "severity": 1,
+      "topic": "usability"
+    },
+    "intent_agree": true,
+    "review_id": "23d905f8-8684-41b3-8faa-42571f3eaeee",
+    "sentiment_abs_diff": 0.1,
+    "severity_abs_diff": 0,
+    "text": "Love this app. The developers do a good job keeping up with changes. Not a complaint at all. FYI- I am a paid subscriber.",
+    "topic_agree": false,
+    "verifier": {
+      "intent": "praise",
+      "severity": 1,
+      "topic": "other"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "complaint",
+      "severity": 4,
+      "topic": "playback"
+    },
+    "intent_agree": true,
+    "review_id": "3df77a78-ad9a-4456-8be8-8178ffd43d67",
+    "sentiment_abs_diff": 0.1,
+    "severity_abs_diff": 1,
+    "text": "Always say no internet connection Most of my favourite Bollywood songs are not present",
+    "topic_agree": false,
+    "verifier": {
+      "intent": "complaint",
+      "severity": 3,
+      "topic": "catalog"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "praise",
+      "severity": 1,
+      "topic": "other"
+    },
+    "intent_agree": true,
+    "review_id": "df239418-e786-4b6f-9545-6946e1960b89",
+    "sentiment_abs_diff": 0.1,
+    "severity_abs_diff": 0,
+    "text": "Greatly satisfied with the selection of tracks on the playlist much appreciated for my listening pleasure.",
+    "topic_agree": false,
+    "verifier": {
+      "intent": "praise",
+      "severity": 1,
+      "topic": "catalog"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "praise",
+      "severity": 1,
+      "topic": "other"
+    },
+    "intent_agree": true,
+    "review_id": "1340bd5d-35eb-4434-84b2-0ce9ca7dc9be",
+    "sentiment_abs_diff": 0.0,
+    "severity_abs_diff": 0,
+    "text": "Love that Spotify let's you listen while your screen is off! the hottest playlists available for browsing so if your not sure what you wanna hear no worries, Spotify's got you! I strongly recommend this app to anyone that has to have their fav music in their chill zone!",
+    "topic_agree": false,
+    "verifier": {
+      "intent": "praise",
+      "severity": 1,
+      "topic": "playback"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "complaint",
+      "severity": 3,
+      "topic": "billing"
+    },
+    "intent_agree": true,
+    "review_id": "ac581cea-24f2-4251-a062-53cdd77cfed7",
+    "sentiment_abs_diff": 1.0,
+    "severity_abs_diff": 0,
+    "text": "I love using this app..it lets me use my phone without stopping the music. I only wish it wasn't limited on the skips.",
+    "topic_agree": false,
+    "verifier": {
+      "intent": "complaint",
+      "severity": 3,
+      "topic": "playback"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "complaint",
+      "severity": 3,
+      "topic": "catalog"
+    },
+    "intent_agree": true,
+    "review_id": "59f31721-b2c8-40c5-ba3c-b9fe64a58d68",
+    "sentiment_abs_diff": 0.0,
+    "severity_abs_diff": 0,
+    "text": "Look, I love spotify, and I've always done, but suddenly, my songs lyrics stopped loading..? I don't get why they used to work perfectly fine. The lyrics only work on my desktop and barely some on my phone. I thought it might be some songs, but it's like my whole playlist is like that. And don't get",
+    "topic_agree": false,
+    "verifier": {
+      "intent": "complaint",
+      "severity": 3,
+      "topic": "playback"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "praise",
+      "severity": 1,
+      "topic": "catalog"
+    },
+    "intent_agree": false,
+    "review_id": "3db7e65c-e5c0-431b-a107-28efeaae5acc",
+    "sentiment_abs_diff": 0.6,
+    "severity_abs_diff": 0,
+    "text": "Love Rogan and you gotem",
+    "topic_agree": false,
+    "verifier": {
+      "intent": "unclear",
+      "severity": 1,
+      "topic": "other"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "request",
+      "severity": 3,
+      "topic": "usability"
+    },
+    "intent_agree": false,
+    "review_id": "2aae0ce4-ae4a-46ce-b2fe-0d901eb23c06",
+    "sentiment_abs_diff": 0.0,
+    "severity_abs_diff": 0,
+    "text": "The new layout is awful. I have oversized icons and I have to scroll forever to get to my daily mixes, please go back.",
+    "topic_agree": true,
+    "verifier": {
+      "intent": "complaint",
+      "severity": 3,
+      "topic": "usability"
+    }
+  }
+]

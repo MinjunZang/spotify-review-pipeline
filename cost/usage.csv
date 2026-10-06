@@ -1,0 +1,7 @@
+pilot_phase,request_id,role,provider,model,effort,tier,outcome,attempt,retry_kind,batch_size,input_tokens,cached_input_tokens,output_tokens,reasoning_tokens,latency_s,local_compute_s,ts
+cold,req_203ba0c06b4b4b868316e979a87b8dd2,enrich,openai,gpt-6-luna,none,standard,succeeded,1,initial,50,2829,1258,2093,0,11.661,,2026-10-06T13:20:06-0700
+cold,req_43cc0097ea0f47609788b150f924b80d,enrich,openai,gpt-6-luna,none,standard,succeeded,1,initial,50,2908,1258,1800,0,10.627,,2026-10-06T13:20:17-0700
+cold,req_de9162b2fdc04f0fad320c51d10808d0,enrich,openai,gpt-6-luna,none,standard,succeeded,1,invalid_output_retry,1,1359,1258,73,0,3.395,,2026-10-06T13:20:20-0700
+cold,ollama-df1c46e30ab2,verify,ollama,gemma4:e4b,none,local,succeeded,1,,,1248,0,510,0,28.551,28.547,2026-10-06T13:20:49-0700
+cold,req_622f148d9b684b2e9d6db178ed84bb47,group,openai,gpt-6-luna,none,standard,succeeded,1,,,3270,0,627,0,6.939,,2026-10-06T13:20:56-0700
+cold,req_938899710a984d16b51302248d202a44,memo,openai,gpt-6-luna,low,standard,succeeded,1,,,4778,0,696,233,8.197,,2026-10-06T13:21:04-0700

@@ -1,0 +1,169 @@
+{
+  "agreement": {
+    "compared": 200,
+    "flagged_rate": 0.26,
+    "intent_rate": 0.935,
+    "severity_exact_rate": 0.805,
+    "severity_mae": 0.2,
+    "severity_within1_rate": 0.995,
+    "topic_rate": 0.805
+  },
+  "declared_sample_size": 200,
+  "disagreement_count": 52,
+  "enrich_records_available": 8444,
+  "generated_at": "2026-10-06T13:36:38-0700",
+  "planted_error_test": {
+    "cases": [
+      {
+        "original_intent": "praise",
+        "original_topic": "other",
+        "planted_intent": "complaint",
+        "planted_topic": "support",
+        "review_id": "a6c7fcae-09b6-4ebb-ae7d-76faf79f0d34"
+      },
+      {
+        "original_intent": "cancellation",
+        "original_topic": "usability",
+        "planted_intent": "praise",
+        "planted_topic": "billing",
+        "review_id": "53d17bb6-2ab8-4b4c-b19e-50c84736f0b8"
+      },
+      {
+        "original_intent": "complaint",
+        "original_topic": "other",
+        "planted_intent": "praise",
+        "planted_topic": "usability",
+        "review_id": "e56291cf-d655-4e2c-95ef-8111bfe24775"
+      },
+      {
+        "original_intent": "unclear",
+        "original_topic": "other",
+        "planted_intent": "praise",
+        "planted_topic": "playback",
+        "review_id": "0e2c4a11-11cf-4258-9505-5b71ef1ef370"
+      },
+      {
+        "original_intent": "praise",
+        "original_topic": "usability",
+        "planted_intent": "complaint",
+        "planted_topic": "billing",
+        "review_id": "d39c6ad9-9a2e-4084-a652-ed9a3e603caa"
+      },
+      {
+        "original_intent": "unclear",
+        "original_topic": "other",
+        "planted_intent": "praise",
+        "planted_topic": "downloads",
+        "review_id": "e9824cbb-86da-4414-a157-19b254b197a3"
+      },
+      {
+        "original_intent": "praise",
+        "original_topic": "other",
+        "planted_intent": "complaint",
+        "planted_topic": "usability",
+        "review_id": "71f8302d-5cb2-4841-af71-70c58963aa32"
+      },
+      {
+        "original_intent": "complaint",
+        "original_topic": "billing",
+        "planted_intent": "praise",
+        "planted_topic": "access",
+        "review_id": "57066953-9ae5-4382-b6b9-af1fff401132"
+      },
+      {
+        "original_intent": "cancellation",
+        "original_topic": "billing",
+        "planted_intent": "praise",
+        "planted_topic": "catalog",
+        "review_id": "6b55ac9c-8dd2-4170-8782-bd35985ec0d9"
+      },
+      {
+        "original_intent": "praise",
+        "original_topic": "other",
+        "planted_intent": "complaint",
+        "planted_topic": "downloads",
+        "review_id": "7339f902-194c-4310-9924-d627b71f8628"
+      },
+      {
+        "original_intent": "complaint",
+        "original_topic": "usability",
+        "planted_intent": "praise",
+        "planted_topic": "playback",
+        "review_id": "14ec9972-a341-4535-9d64-8f288b0e1bf5"
+      },
+      {
+        "original_intent": "complaint",
+        "original_topic": "usability",
+        "planted_intent": "praise",
+        "planted_topic": "support",
+        "review_id": "dbd1d7db-59e6-49e7-ac9c-96218efee433"
+      },
+      {
+        "original_intent": "praise",
+        "original_topic": "other",
+        "planted_intent": "complaint",
+        "planted_topic": "access",
+        "review_id": "cfb6b2b7-2c30-412b-92e4-35894de30686"
+      },
+      {
+        "original_intent": "complaint",
+        "original_topic": "usability",
+        "planted_intent": "praise",
+        "planted_topic": "billing",
+        "review_id": "d2961f3d-021f-4518-9a47-68755c29672e"
+      },
+      {
+        "original_intent": "cancellation",
+        "original_topic": "playback",
+        "planted_intent": "praise",
+        "planted_topic": "downloads",
+        "review_id": "9ccc02a4-1cc3-4f79-a2bf-f3193f16c0d1"
+      },
+      {
+        "original_intent": "complaint",
+        "original_topic": "billing",
+        "planted_intent": "praise",
+        "planted_topic": "downloads",
+        "review_id": "7a7e36fe-f2f4-4b5c-abad-bae76ff2e14b"
+      },
+      {
+        "original_intent": "unclear",
+        "original_topic": "other",
+        "planted_intent": "praise",
+        "planted_topic": "playback",
+        "review_id": "4173d61c-3332-4ca2-93a7-f8fd78baa65f"
+      },
+      {
+        "original_intent": "complaint",
+        "original_topic": "other",
+        "planted_intent": "praise",
+        "planted_topic": "support",
+        "review_id": "6d0f4fde-5b87-4e68-99e4-eb62b35c5a41"
+      },
+      {
+        "original_intent": "praise",
+        "original_topic": "other",
+        "planted_intent": "complaint",
+        "planted_topic": "support",
+        "review_id": "e28f4527-0eb6-41dc-b854-d7b06e2df3cd"
+      },
+      {
+        "original_intent": "praise",
+        "original_topic": "other",
+        "planted_intent": "complaint",
+        "planted_topic": "support",
+        "review_id": "5a7a0f95-dcf9-4e31-8c14-809c9b0d5e33"
+      }
+    ],
+    "detected": 1.0,
+    "note": "Copies of sampled enriched labels with deliberately wrong topic+intent; detected = verifier disagrees. Not part of any business output.",
+    "planted": 20,
+    "synthetic": true
+  },
+  "sample_seed": "verify-seed-v1",
+  "stop_reason": "complete",
+  "verified": 200,
+  "verify_calls": 8,
+  "verify_config": "gemma4:e4b|effort=none|verify_v1@ec6d869e3ca7",
+  "verify_cost_usd": 0
+}

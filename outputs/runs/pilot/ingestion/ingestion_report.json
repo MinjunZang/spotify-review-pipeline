@@ -1,0 +1,129 @@
+{
+  "accounting_check": {
+    "every_id_has_status": true,
+    "rows == nonempty + quarantined": true
+  },
+  "counts": {
+    "distinct_nonempty_texts": 100,
+    "duplicate_review_ids": 0,
+    "empty_review_text_quarantined": 0,
+    "exact_duplicate_text_rows_reusable": 0,
+    "missing_app_version": 18,
+    "nonempty_to_classify": 100,
+    "source_rows": 100,
+    "unique_review_ids": 100
+  },
+  "empty_review_ids": [],
+  "first_review": "2022-06-02 10:30:18",
+  "generated_at": "2026-10-06T13:19:54-0700",
+  "input": {
+    "bytes": 15466,
+    "is_full_course_corpus": false,
+    "matches_course_manifest_entry": true,
+    "path": "cost_100.csv",
+    "sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e"
+  },
+  "last_review": "2023-11-13 15:07:19",
+  "most_repeated_texts": [
+    {
+      "rows": 1,
+      "text": "Thik thak hi hai"
+    },
+    {
+      "rows": 1,
+      "text": "Good at all"
+    },
+    {
+      "rows": 1,
+      "text": "Great"
+    },
+    {
+      "rows": 1,
+      "text": "You can't even listen to music you want it just shuffles it, like what the hell?"
+    },
+    {
+      "rows": 1,
+      "text": "This was fine till the last update, now you can't even pick a certain song witho"
+    },
+    {
+      "rows": 1,
+      "text": "Love it"
+    },
+    {
+      "rows": 1,
+      "text": "Fantastic experience"
+    },
+    {
+      "rows": 1,
+      "text": "Awesome app and music"
+    },
+    {
+      "rows": 1,
+      "text": "Best for listening songs"
+    },
+    {
+      "rows": 1,
+      "text": "Kudos spotify"
+    },
+    {
+      "rows": 1,
+      "text": "Great music"
+    },
+    {
+      "rows": 1,
+      "text": "Why it requires premium just to play next music / to choose music ?? And why the"
+    },
+    {
+      "rows": 1,
+      "text": "Excellent!"
+    },
+    {
+      "rows": 1,
+      "text": "Good aap"
+    },
+    {
+      "rows": 1,
+      "text": "Top music app and i can see why."
+    }
+  ],
+  "partial_months_note": "First (2022-05, from 05-17) and last (2023-11, to 11-15) months are partial.",
+  "reviews_by_month": {
+    "2022-06": 5,
+    "2022-07": 5,
+    "2022-08": 6,
+    "2022-09": 5,
+    "2022-10": 4,
+    "2022-11": 1,
+    "2022-12": 2,
+    "2023-01": 4,
+    "2023-02": 4,
+    "2023-03": 7,
+    "2023-04": 4,
+    "2023-05": 5,
+    "2023-06": 4,
+    "2023-07": 11,
+    "2023-08": 3,
+    "2023-09": 6,
+    "2023-10": 19,
+    "2023-11": 5
+  },
+  "reviews_by_rating": {
+    "1": 33,
+    "2": 8,
+    "3": 6,
+    "4": 10,
+    "5": 43
+  },
+  "runtime_seconds": 0.0,
+  "status_after_ingestion": {
+    "pending": 100
+  },
+  "text_length_chars": {
+    "max": 486,
+    "mean": 80.42,
+    "median": 44.5,
+    "min": 4,
+    "p90": 186,
+    "p99": 486
+  }
+}

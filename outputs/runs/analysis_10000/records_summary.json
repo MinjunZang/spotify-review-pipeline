@@ -1,0 +1,12 @@
+{
+  "by_status": {
+    "completed": 9996,
+    "quarantined": 4
+  },
+  "completed_via_exact_text_cache": 1552,
+  "finalized": false,
+  "quarantine_reasons": {
+    "quote_not_in_source; retry": 4
+  },
+  "records": 10000
+}

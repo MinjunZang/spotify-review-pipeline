@@ -1,0 +1,48 @@
+{
+  "check": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "passed": true,
+    "problems": []
+  },
+  "cited_claim_ids": [
+    "A001",
+    "A003",
+    "A004",
+    "A008",
+    "A010",
+    "A029",
+    "A031",
+    "A036",
+    "A038",
+    "C001",
+    "C002",
+    "C003",
+    "C005",
+    "C021",
+    "T008",
+    "T009",
+    "T011",
+    "T012"
+  ],
+  "cited_issue_ids": [
+    "billing.premium_paywall",
+    "other.general",
+    "playback.crash_freeze",
+    "usability.ads"
+  ],
+  "cited_review_ids": [
+    "88439ec2-7c49-4c57-bedb-c5e098692aff",
+    "d146397f-4a94-4980-be00-ae9212eca3a7"
+  ],
+  "generated_at": "2026-10-06T13:21:04-0700",
+  "headline": "Prioritize clearer Premium feature boundaries and a less restrictive free-tier experience",
+  "memo_config": "gpt-6-luna|effort=low|memo_v1@f1f824fe4b3e",
+  "memo_markdown": "## Recommendation\nPrioritize billing/support, starting with `billing.premium_paywall`: review the free-tier limits on choosing, skipping, queuing, and playing specific songs, and make restrictions clear. This is the highest-ranked specific issue in the pack, with 9 complaints [C001] and a severity sum of 27 [C002].\n\n## Evidence\nThe issue’s mean severity is 3.000000 [C003]. A review describes losing the ability to choose songs after an update (`d146397f-4a94-4980-be00-ae9212eca3a7`); another objects to restrictions on going back or skipping (`88439ec2-7c49-4c57-bedb-c5e098692aff`). Billing/support accounts for 10 complaints [A008] and has mean severity 2.900000 [A010]. Its complaint share was 11.54% in the early trend window [T009] and 12.5% in the late window [T012].\n\n## Alternatives considered\nUsability has more complaints—14 [A001]—and a higher complaint share of 27.45% [A004], led by `usability.ads` (8 complaints [C005]). It merits follow-up, but its area mean severity is 2.642857 [A003], below billing/support’s [A010]. Playback is more severe on average (3.400000 [A031]) but has 5 complaints [A029]; `playback.crash_freeze` has 2 [C021]. Access has a 4.000000 mean severity [A038], but only 2 complaints [A036].\n\n## Limitations\nThese are self-selected public reviews, not a customer-population measure. Cancellation records express intent, not observed churn. The trend excludes partial first and last months; completed-record counts differ between the early and late windows (26 [T008], 48 [T011]). Some feedback is classified broadly as `other.general`, limiting diagnosis.",
+  "pack_sha256": "e72e65308ec1e94f5804018629184b2f0b2cd507df8e54a538ebe147f73343d1",
+  "priority_area": "billing_support"
+}

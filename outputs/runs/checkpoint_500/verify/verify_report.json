@@ -1,0 +1,64 @@
+{
+  "agreement": {
+    "compared": 50,
+    "flagged_rate": 0.2,
+    "intent_rate": 0.96,
+    "severity_exact_rate": 0.88,
+    "severity_mae": 0.18,
+    "severity_within1_rate": 0.98,
+    "topic_rate": 0.84
+  },
+  "declared_sample_size": 50,
+  "disagreement_count": 10,
+  "enrich_records_available": 479,
+  "generated_at": "2026-10-06T13:23:27-0700",
+  "planted_error_test": {
+    "cases": [
+      {
+        "original_intent": "complaint",
+        "original_topic": "playback",
+        "planted_intent": "praise",
+        "planted_topic": "support",
+        "review_id": "3df77a78-ad9a-4456-8be8-8178ffd43d67"
+      },
+      {
+        "original_intent": "praise",
+        "original_topic": "other",
+        "planted_intent": "complaint",
+        "planted_topic": "access",
+        "review_id": "e575daac-46ab-4da3-b9f5-723bf4000234"
+      },
+      {
+        "original_intent": "complaint",
+        "original_topic": "playback",
+        "planted_intent": "praise",
+        "planted_topic": "support",
+        "review_id": "05fa5b8a-a49b-43be-bab5-38af789a65a7"
+      },
+      {
+        "original_intent": "praise",
+        "original_topic": "other",
+        "planted_intent": "complaint",
+        "planted_topic": "catalog",
+        "review_id": "6f51891d-fa49-45e5-b2b2-27172682ab8f"
+      },
+      {
+        "original_intent": "praise",
+        "original_topic": "other",
+        "planted_intent": "complaint",
+        "planted_topic": "catalog",
+        "review_id": "7c431748-3a85-4080-8cf9-c41f48f92ea5"
+      }
+    ],
+    "detected": 1.0,
+    "note": "Copies of sampled enriched labels with deliberately wrong topic+intent; detected = verifier disagrees. Not part of any business output.",
+    "planted": 5,
+    "synthetic": true
+  },
+  "sample_seed": "verify-seed-v1",
+  "stop_reason": "complete",
+  "verified": 50,
+  "verify_calls": 2,
+  "verify_config": "gemma4:e4b|effort=none|verify_v1@ec6d869e3ca7",
+  "verify_cost_usd": 0
+}

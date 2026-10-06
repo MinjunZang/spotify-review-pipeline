@@ -1,0 +1,59 @@
+[
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "complaint",
+      "severity": 2,
+      "topic": "support"
+    },
+    "intent_agree": true,
+    "review_id": "33526c6f-7a49-4b3d-bd20-d1bc191c494c",
+    "sentiment_abs_diff": 0.2,
+    "severity_abs_diff": 2,
+    "text": "RUDE APP , THIS APP SUPPORT GUYS 🤮🤮🤮🤮🤮🤮🤮🤮🤮🤮. تطبيق سيء ، بدعم المثليين 🤮🤮🤮",
+    "topic_agree": true,
+    "verifier": {
+      "intent": "complaint",
+      "severity": 4,
+      "topic": "support"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "unclear",
+      "severity": 1,
+      "topic": "other"
+    },
+    "intent_agree": false,
+    "review_id": "3e82cf28-6b0a-4980-902c-b6aa154d353a",
+    "sentiment_abs_diff": 0.4,
+    "severity_abs_diff": 2,
+    "text": "Aakhir kar spotify ne bhi apni bhikaariyo vali aukaat dikha di \"Gadar karbe\" Chanda mangna got real Bhikaariyo ko training dena bhi shuru kardo haramiyo",
+    "topic_agree": false,
+    "verifier": {
+      "intent": "complaint",
+      "severity": 3,
+      "topic": "billing"
+    }
+  },
+  {
+    "any_disagreement": true,
+    "enriched": {
+      "intent": "praise",
+      "severity": 1,
+      "topic": "usability"
+    },
+    "intent_agree": true,
+    "review_id": "23d905f8-8684-41b3-8faa-42571f3eaeee",
+    "sentiment_abs_diff": 0.0,
+    "severity_abs_diff": 0,
+    "text": "Love this app. The developers do a good job keeping up with changes. Not a complaint at all. FYI- I am a paid subscriber.",
+    "topic_agree": false,
+    "verifier": {
+      "intent": "praise",
+      "severity": 1,
+      "topic": "other"
+    }
+  }
+]
