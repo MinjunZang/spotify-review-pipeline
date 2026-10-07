@@ -30,8 +30,8 @@ models are used only for bounded language judgments in four separate roles (enri
 | Golden 50 agreement (full-run labels) | topic **86%**, intent **92%**, severity exact **82%** (MAE 0.30), sentiment ±0.5 **86%** | [`evals/golden/full_run/report.md`](evals/golden/full_run/report.md) |
 | Independent verifier (1,500 blind re-labels, different model) | topic 78.2%, intent 90.3%, severity exact 77.6% (±1: 98.7%); 448 disagreements; planted errors caught 150/150 | [`verify_report.json`](outputs/runs/full/verify/verify_report.json) |
 | System tests | retry paths, quarantine, empty+cache, budget stop, resume, prompt injection (gpt-6-luna) — **all pass** | [`evals/system_tests/results.json`](evals/system_tests/results.json) |
-| API spend, full run (all roles) — measured | **$11.53** (enrich $11.522, group $0.007, memo $0.006, verify $0 local) | [`run_summary.json`](outputs/runs/full/run_summary.json) |
-| API spend, everything incl. pilot/checkpoints/evals — measured | ≈ **$11.77** (pilot $0.004, 500 $0.011, 10k $0.19, tests/golden ≈ $0.02) | `cost/`, `outputs/runs/*/run_summary.json` |
+| API spend, full run (all roles) — measured | **$11.53** (enrich $11.522, group + memo incl. reruns $0.013, verify $0 local) | [`run_summary.json`](outputs/runs/full/run_summary.json) |
+| API spend, everything incl. pilot/checkpoints/evals — measured | **$11.75** (full $11.534, 10k $0.192, 500 $0.013, pilot $0.004, golden/smoke/injection $0.001) | every `calls.jsonl` × `cost/rates.csv` |
 | Enrichment wall clock, full run — measured | **3.9 h** (8 workers, batch 50) + 37 min local verification | `run_summary.json`, `run_manifest.json` |
 | Full-run cost projected from the 100-review pilot — estimate | base $11.39 / conservative $15.67 (actual landed 1.2% above base) | [`cost/report.md`](cost/report.md) |
 | Course checker (`check_submission.py check`) | coverage point candidate **1.0**; only flag `unfinished_classification: 14` (the 14 nonempty quarantines, disclosed) | section 9 |
@@ -50,7 +50,7 @@ models are used only for bounded language judgments in four separate roles (enri
   reviews of any area (10,964 [A012]).
 * It is mostly a **policy** problem (restricted controls, skip limits, "can't choose a song" on the free tier), not a defect, so the work
   is product/pricing design: which controls to gate, how limits are communicated, and entitlement bugs (`billing.subscription_entitlement`, rank 12).
-* **Alternatives.** Playback has the highest share of blocked-task complaints (26.54% severity ≥ 4 [A021]; mean 3.188184 [A017]) but its
+* **Alternatives.** Playback has the most blocked-task complaints of any area (11,130 at severity ≥ 4 [A020], 26.54% of its complaints [A021]; mean 3.188184 [A017]) but its
   share of reviews fell from 8.11% [T033] to 4.55% [T036] — keep a reliability track, not the headline. Access is the most severe area
   (mean 3.864256 [A038]) but small (3.33% of complaints [A039]). Usability is the largest area (82,828 complaints [A001]) but low severity
   (2.506640 [A003]) and led by ads/UI changes. `other.general` (rank 2, 66,259 [C005]) is generic dissatisfaction with no specific
@@ -62,7 +62,7 @@ models are used only for bounded language judgments in four separate roles (enri
 
 The AI memo ([`memo.md`](outputs/runs/full/memo/memo.md), `gpt-6-luna`, prompt `memo_v2`) was generated from saved aggregates only and
 passed the code check (every number equals its cited claim; every issue/review ID is in the evidence pack). Its reasoning was then read
-and checked by a person; earlier memo versions and why they changed are kept in `outputs/runs/full/memo/history/` and [docs/failures.md](docs/failures.md) §4–5.
+and checked by a person — **the student reviewed this reasoning and endorses the recommendation above (2026-10-06)**; earlier memo versions and why they changed are kept in `outputs/runs/full/memo/history/` and [docs/failures.md](docs/failures.md) §4–5.
 
 ---
 
@@ -79,7 +79,7 @@ and checked by a person; earlier memo versions and why they changed are kept in 
 | **T3 Real 100-review cold/warm pilot, calculator, retry/spend/recovery controls** | [cost/](cost/) (pilot evidence, offline calculator, report); system tests `retry_paths`, `budget_stop`, `resume`; recording |
 | **W1 Full ingestion, coverage, classification** | section 1; `grading/ingestion.json` (byte-identical to the checker's profile); self-check |
 | **W2 Staged program, bounded calls, saved handoffs, resume** | `python -m pipeline.run --input <csv>`; ≤ 50 reviews/request in `calls.jsonl`; checkpoints + recording |
-| **W3 Reproducible ranking + deployed dashboard/backend/DB with grounded AI recommendation** | `python -m pipeline.rank …` (section 8); live dashboard; [dashboard/](dashboard/) (Vercel API → Neon Postgres) |
+| **W3 Reproducible ranking + deployed dashboard/backend/DB with grounded AI recommendation** | `python -m pipeline.rank …` (section 8); per-issue [`aggregates.csv`](outputs/runs/full/aggregates.csv) and [`ranking.csv`](outputs/runs/full/ranking.csv); live dashboard; [dashboard/](dashboard/) (Vercel API → Neon Postgres) |
 
 ---
 
@@ -102,6 +102,16 @@ flowchart LR
 | **memo** (`gpt-6-luna`, effort `low`, prompt `memo_v2`) | claims + top-10 issues with 3 quotes each + trend + limitations | priority area, headline, memo | Weighing alternatives is judgment. Code computes every number, checks every cited number/ID, retries once with the problems listed. |
 
 ---
+
+### Why these tools (measured quality, cost, runtime)
+
+| option | measured | decision |
+|---|---|---|
+| **gpt-6-luna, effort `none`, 50 reviews/request** | pilot: 100/100 valid, $0.0024 enrich, 26 s; 10k: $0.19, 8 min (4 workers); golden topic 88% / intent 96% (pre-run) | **chosen enricher** — cheapest tested setting that passed evaluation; full run $11.52 in 3.9 h |
+| local `gemma4:e4b` (Ollama) as enricher | same pilot: $0 API but 332 s for 100 reviews → projected ~112 h for the corpus ([`cost/alternatives/local_only_dryrun`](cost/alternatives/local_only_dryrun/report.md)) | too slow for the deadline; **used as the independent verifier** instead (different model family, $0) |
+| Jev / TypeSafe (course suggestion) | not tested | not used: it would add a second paid provider and key; the brief allows any classifier, and the measured luna setup already met cost/quality needs. No claim is made about Jev's quality. |
+| Sonnet 5 fallback | not run | declared fallback fraction 0; its rates stay in the calculator for what-if scenarios ($2/$10 per M tokens would make the full run ~20× more expensive) |
+| SQLite (local state) + Postgres (deployed) | ingestion of 660,622 rows in 13 s; atomic per-batch commits | SQL/code for all counting, dedup, membership and ranking — no model involved |
 
 ## 5. Data and ingestion
 
@@ -150,7 +160,7 @@ misleading issue names, a memo that ignored the #1 issue): [docs/failures.md](do
 
 ## 8. Setup and commands
 
-Requirements: Python ≥ 3.11 (tested 3.14.7, **pipeline is standard-library only**), optional Ollama 0.34 with `gemma4:e4b` for the
+Requirements: Python 3 (tested on 3.14.7; **the pipeline is standard-library only**, see `requirements.txt`), optional Ollama 0.34 with `gemma4:e4b` for the
 verifier, `psycopg[binary]` 3.3 for the DB loader, Node 20+ with `@neondatabase/serverless` 1.2 for the dashboard API.
 
 ```bash
@@ -175,9 +185,18 @@ python3 evals/system_tests.py --only retry_paths,quarantine,empty_and_cache,budg
 python3 cost/pilot.py --execute                                            # 100-review cold+warm pilot
 python3 -m pipeline.run --input data/spotify_reviews_18months.csv --name full --workers 8 --budget 15   # any CSV path works
 ./run_full.sh start | resume | status                                      # the full run as recorded
-python3 evals/golden_eval.py --db work/full/pipeline.sqlite --tag full_run # golden comparison (no calls)
+python3 evals/golden_eval.py --db work/full/pipeline.sqlite --tag full_run # golden comparison (no calls; needs the local state of a full run)
 .venv/bin/python dashboard/load_db.py --run-dir outputs/runs/full          # load saved outputs into Postgres (needs DATABASE_URL)
 ```
+
+**Database, backend and dashboard (reproduce the deployment):**
+1. Create a Postgres database (we used a free [Neon](https://neon.tech) project, region `aws-us-east-1`, Postgres 17; ~215 MB after loading) and put its
+   connection string in `.env` as `DATABASE_URL=…` (never committed).
+2. Load the saved outputs — no model calls: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/python dashboard/load_db.py --run-dir outputs/runs/full`.
+   This creates tables `reviews` (660,622 rows), `issues`, `issue_examples`, `areas`, `trend`, `monthly`, `claims`, `memo`, `meta` (schema in `load_db.py`).
+3. Deploy the API + page on Vercel from `dashboard/`: `vercel link`, then `vercel env add DATABASE_URL production`, then `vercel deploy --prod`.
+   The browser never sees the connection string; it only calls `/api/overview`, `/api/ranking`, `/api/issue?id=…`, `/api/memo`, `/api/review?id=…`.
+4. **Access:** the deployed dashboard is public — no login or key needed.
 
 Re-running a command resumes: ingestion is skipped when the DB exists, completed IDs are never re-sent, and group/memo reuse saved outputs
 when their evidence pack is unchanged (warm pilot: 0 calls).

@@ -1,0 +1,5 @@
+# The pipeline (pipeline/, cost/, evals/, tools/) uses only the Python standard library (tested: Python 3.14.7).
+# Needed only to load saved outputs into Postgres for the dashboard (dashboard/load_db.py):
+psycopg[binary]==3.3.6
+# Dashboard API dependencies are in dashboard/package.json (@neondatabase/serverless 1.2.0, Node 20+).
+# Optional local verifier: Ollama 0.34.4 with model gemma4:e4b (ollama pull gemma4:e4b).

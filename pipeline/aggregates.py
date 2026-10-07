@@ -83,6 +83,7 @@ def run(db, run_dir):
                         "Cancellation = expressed intent in text, not observed churn.",
                         "First (2022-05) and last (2023-11) months are partial and excluded from trend windows."]}
     write_json(run_dir / "aggregates.json", result)
+    issue_aggregates(con, run_dir)
     with (run_dir / "aggregates_areas.csv").open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(areas[0].keys()) if areas else ["area"])
         w.writeheader()
@@ -90,6 +91,34 @@ def run(db, run_dir):
     con.close()
     print(f"[aggregates] completed={completed} complaints={len(comp)} areas={[(a['area'], a['severity_sum']) for a in areas]}")
     return result
+
+
+def issue_aggregates(con, run_dir):
+    """Per-issue table (aggregates.csv): baseline columns + cancellations, severity>=4 and names, rank order."""
+    mem_path, rank_path = run_dir / "group" / "membership.csv", run_dir / "ranking.csv"
+    if not (mem_path.exists() and rank_path.exists()):
+        return
+    member = {r["review_id"]: r["issue_id"] for r in csv.DictReader(mem_path.open(encoding="utf-8"))}
+    extra = defaultdict(Counter)
+    for rid, month, topic, intent, sev, nr in con.execute(SQL):
+        iid = member.get(rid)
+        if iid:
+            extra[iid]["cancellation_count"] += intent == "cancellation"
+            extra[iid]["sev4plus_count"] += sev >= 4
+            extra[iid]["needs_review_count"] += bool(nr)
+    issues_path = run_dir / "group" / "issues.json"
+    names = {i["issue_id"]: i for i in json.loads(issues_path.read_text())["issues"]} if issues_path.exists() else {}
+    cols = ["rank", "issue_id", "area", "name", "complaint_count", "cancellation_count", "sev4plus_count",
+            "needs_review_count", "severity_sum", "mean_severity", "priority_score"]
+    with (run_dir / "aggregates.csv").open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=cols, lineterminator="\n")
+        w.writeheader()
+        for r in csv.DictReader(rank_path.open(encoding="utf-8")):
+            iid = r["issue_id"]
+            w.writerow({**{k: r[k] for k in ("rank", "issue_id", "complaint_count", "severity_sum", "mean_severity",
+                                             "priority_score")},
+                        "area": AREA[iid.split(".")[0]], "name": names.get(iid, {}).get("name", ""),
+                        **{k: extra[iid][k] for k in ("cancellation_count", "sev4plus_count", "needs_review_count")}})
 
 
 def main(argv=None):

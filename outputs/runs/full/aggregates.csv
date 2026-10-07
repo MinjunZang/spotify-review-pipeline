@@ -1,0 +1,31 @@
+rank,issue_id,area,name,complaint_count,cancellation_count,sev4plus_count,needs_review_count,severity_sum,mean_severity,priority_score
+1,billing.premium_paywall,billing_support,Features Locked Behind Premium,49834,9819,434,2991,141749,2.844423,141749
+2,other.general,other,General App Dissatisfaction,66259,4619,244,9191,131797,1.989118,131797
+3,usability.ads,usability,Too Many Advertisements,37469,2872,167,3058,93738,2.501748,93738
+4,playback.playback_stops_or_skips,playback,Playback Stops or Skips,19469,1890,3794,1799,61848,3.176743,61848
+5,usability.ui_change,usability,Unwanted App Updates,22953,3719,251,3859,50043,2.180238,50043
+6,usability.queue_shuffle_controls,usability,Shuffle and Playback Controls,11045,1476,124,771,32055,2.902218,32055
+7,playback.crash_freeze,playback,App Crashes and Freezes,8299,622,5413,681,29991,3.613809,29991
+8,access.login_failure,access,Unable to Log In,7300,369,6542,523,28410,3.891781,28410
+9,usability.library_playlist_management,usability,Library and Playlist Management,6377,447,562,410,18898,2.963462,18898
+10,catalog.missing_content,catalog,Missing Songs and Content,6073,492,58,787,17007,2.800428,17007
+11,catalog.lyrics,catalog,Lyrics Missing or Unavailable,5515,257,25,362,15799,2.864733,15799
+12,billing.subscription_entitlement,billing_support,Premium Benefits Not Applied,4558,539,295,525,13613,2.986617,13613
+13,playback.connection_error,playback,Connection Status Errors,3945,247,1242,503,12945,3.281369,12945
+14,usability.ui_navigation,usability,Interface and Navigation,4984,453,167,599,12886,2.585474,12886
+15,playback.device_integration,playback,Device and Bluetooth Integration,4067,621,356,302,12198,2.999262,12198
+16,playback.performance_resources,playback,App Performance and Data Use,4001,344,258,519,11068,2.766308,11068
+17,downloads.offline_mode,downloads,Offline Listening Problems,2680,171,1416,209,9387,3.502612,9387
+18,catalog.recommendations,catalog,Music Recommendations and Discovery,3152,248,12,346,8006,2.539975,8006
+19,billing.price,billing_support,Premium Pricing Too High,3478,387,2,583,6991,2.010063,6991
+20,downloads.download_fails,downloads,Downloads Fail,2283,96,194,374,6848,2.999562,6848
+21,catalog.search,catalog,Search Problems,2159,142,95,244,6317,2.925892,6317
+22,playback.audio_quality,playback,Audio Quality and Sound,2162,162,67,290,5672,2.623497,5672
+23,downloads.downloads_missing,downloads,Downloads Disappear,1576,129,365,197,5079,3.222716,5079
+24,billing.charges_refund,billing_support,Unexpected or Duplicate Charges,1230,170,690,213,4889,3.974797,4889
+25,catalog.podcasts,catalog,Podcast Content and Features,1468,159,124,140,4206,2.865123,4206
+26,access.logged_out,access,Unexpected Sign-Outs,1065,86,703,99,3875,3.638498,3875
+27,access.account_lost_or_hacked,access,Lost or Compromised Accounts,685,86,586,159,2892,4.221898,2892
+28,other.unrelated,other,Unrelated Reviews,1321,745,4,535,1787,1.352763,1787
+29,access.signup,access,Account Creation Problems,490,32,260,80,1688,3.444898,1688
+30,support.support_response,billing_support,Customer Support Responses,421,49,12,65,1185,2.814727,1185
