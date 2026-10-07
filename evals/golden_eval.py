@@ -101,7 +101,7 @@ def evaluate(db, tag):
     valid = sum(c["status"] == "completed" for c in cases)
     rate = lambda k: round(tot[k] / n, 4)  # noqa: E731  (missing predictions count as wrong)
     summary = {
-        "generated_at": now_iso(), "tag": tag, "db": str(Path(db).relative_to(ROOT)), "cases": n, "valid_predictions": valid,
+        "generated_at": now_iso(), "tag": tag, "db": str(Path(db).resolve().relative_to(ROOT)), "cases": n, "valid_predictions": valid,
         "label_config": next((p["label_config"] for p in preds.values() if p.get("label_config")), None),
         "human_label_provenance": dict(Counter(c["label_source"] for c in cases)),
         "ambiguous_cases": sum(c["ambiguous"] for c in cases),

@@ -20,7 +20,7 @@ from .common import now_iso, write_json
 from .llm import RoleCaller
 from .schema import prompt_hash, prompt_text
 
-PROMPT = "group_v1"
+PROMPT = "group_v2"  # v1 named issues after rare high-severity examples (see docs/failures.md)
 EXAMPLES_PER_ISSUE = 6
 
 RECORDS_SQL = """
@@ -44,21 +44,46 @@ def build_membership(records):
     return members
 
 
+DEFINITIONS = {
+    "access": "login, signup, password, account access, logged out, lost/hacked account",
+    "usability": "navigation, controls, layout, queue/playlist management, ad interruptions, unwanted UI changes",
+    "playback": "playback failure, crashes, lag, connection errors, audio quality, battery/data use, Bluetooth/car/cast",
+    "downloads": "downloading, saved music, offline listening, disappearing downloads",
+    "catalog": "missing songs/artists, search/discovery, recommendations, lyrics, podcast content",
+    "billing": "price, charges, refunds, subscriptions, paywalls, premium entitlement, premium-only controls",
+    "support": "contacting customer support and its response",
+    "other": "generic praise/criticism with no specific defect (general) or unrelated text (unrelated)",
+}
+
+
 def evidence_pack(members):
-    """Bounded, deterministic examples: highest severity first, then a stable hash order; distinct quotes."""
+    """Bounded, deterministic, REPRESENTATIVE examples per issue.
+
+    v1 took the highest-severity examples only; for large heterogeneous issues that surfaced rare cases
+    (e.g. privacy complaints inside 66k generic 'worst app' reviews) and the model named the whole issue
+    after them. v2: 4 examples in stable-hash order (a uniform deterministic sample) + 2 highest-severity,
+    distinct quotes, plus the severity distribution and the shared topic definition.
+    """
     pack = []
     for iid in sorted(members):
-        rs = sorted(members[iid], key=lambda r: (-r["severity"], hashlib.sha256(r["review_id"].encode()).hexdigest()))
+        h = lambda r: hashlib.sha256(r["review_id"].encode()).hexdigest()  # noqa: E731
+        typical = sorted(members[iid], key=h)
+        severe = sorted(members[iid], key=lambda r: (-r["severity"], h(r)))
         seen, ex = set(), []
-        for r in rs:
-            q = r["quote"][:200]
-            if q.lower() in seen:
-                continue
-            seen.add(q.lower())
-            ex.append({"review_id": r["review_id"], "severity": r["severity"], "quote": q})
-            if len(ex) >= EXAMPLES_PER_ISSUE:
-                break
-        pack.append({"issue_id": iid, "members": len(members[iid]), "examples": ex})
+        for source, kind, cap in ((typical, "typical", 4), (severe, "most_severe", EXAMPLES_PER_ISSUE)):
+            for r in source:
+                if len(ex) >= cap:
+                    break
+                q = r["quote"][:200]
+                if q.lower() in seen:
+                    continue
+                seen.add(q.lower())
+                ex.append({"review_id": r["review_id"], "severity": r["severity"], "kind": kind, "quote": q})
+        dist = {}
+        for r in members[iid]:
+            dist[str(r["severity"])] = dist.get(str(r["severity"]), 0) + 1
+        pack.append({"issue_id": iid, "topic_definition": DEFINITIONS[iid.split(".")[0]], "members": len(members[iid]),
+                     "severity_distribution": dict(sorted(dist.items())), "examples": ex})
     return pack
 
 

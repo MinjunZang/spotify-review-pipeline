@@ -1,0 +1,56 @@
+{
+  "check": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": [
+          "number '1.83%' does not match [T003] = 0.99",
+          "number '13.04%' does not match [T009] = 3.92",
+          "number '4.55%' does not match [T033] = 8.11"
+        ]
+      },
+      {
+        "attempt": 2,
+        "problems": []
+      }
+    ],
+    "passed": true,
+    "problems": []
+  },
+  "cited_claim_ids": [
+    "A001",
+    "A003",
+    "A008",
+    "A015",
+    "A017",
+    "A021",
+    "A036",
+    "A038",
+    "A042",
+    "C001",
+    "C013",
+    "C014",
+    "C027",
+    "T003",
+    "T006",
+    "T009",
+    "T012",
+    "T033",
+    "T036"
+  ],
+  "cited_issue_ids": [
+    "billing.premium_paywall",
+    "playback.crash_freeze",
+    "playback.playback_stops_or_skips"
+  ],
+  "cited_review_ids": [
+    "b007bb8d-f5e0-4b61-9575-e03bc1f755aa",
+    "d5cf4d6e-34b7-4e12-bf8d-995d4e09503f"
+  ],
+  "generated_at": "2026-10-06T18:55:24-0700",
+  "headline": "Prioritize playback reliability: stop unexpected interruptions and crashes",
+  "memo_config": "gpt-6-luna|effort=low|memo_v1@f1f824fe4b3e",
+  "memo_markdown": "## Recommendation\nPrioritize playback. Fix `playback.playback_stops_or_skips` and `playback.crash_freeze` first, focusing on reliable continuous listening and preventing freezes that require a restart.\n\n## Evidence\nPlayback has 41,943 complaints [A015], mean severity 3.188184 [A017], and 26.54% of area complaints at severity four or above [A021]. Stops or skips account for 19,469 complaints [C013] and severity sum 61,848 [C014]; crashes or freezes have the highest mean severity among the cited issues at 3.613809 [C027]. Playback complaint share fell from 8.11% early [T033] to 4.55% late [T036], so the issue remains substantial but is not worsening in the trend windows. Reviews describe repeated restarts (`d5cf4d6e-34b7-4e12-bf8d-995d4e09503f`) and crashes requiring a hard reboot (`b007bb8d-f5e0-4b61-9575-e03bc1f755aa`).\n\n## Alternatives considered\nBilling/support has more complaints, 59,521 [A008], and the top-ranked `billing.premium_paywall` has 49,834 [C001]. Its complaint share rose from 3.92% early [T009] to 13.04% late [T012], making it the strongest alternative. Usability also has more complaints, 82,828 [A001], but a lower mean severity of 2.506640 [A003]. Access has the highest area mean severity, 3.864256 [A038], and 84.81% severity-four-or-above share [A042], but 9,540 complaints [A036]; its share rose from 0.99% early [T003] to 1.83% late [T006].\n\n## Limitations\nEvidence covers self-selected public reviews, not a customer population. Cancellation records express intent, not observed churn. Trend windows exclude the partial first and last months. Issue classifications may not capture the underlying cause consistently.",
+  "pack_sha256": "3e00f81f5bc758bd01da50f7eb72bcdae41d4b37db5d1aa52f72c8dc2f3aed32",
+  "priority_area": "playback"
+}

@@ -1,0 +1,68 @@
+{
+  "code_version": "281e002-dirty",
+  "input": "data/spotify_reviews_18months.csv",
+  "input_sha256": "1fc85de68a304dd8978b537cfa58793d5f41cbaf417fa32cb53899f83a2fcef6",
+  "invocations": [
+    {
+      "enrich_stop_reason": null,
+      "finished_at": "2026-10-06T14:19:40-0700",
+      "stage_seconds": {
+        "ingest": 12.83
+      },
+      "stages": [
+        "ingest"
+      ],
+      "wall_clock_s": 12.88
+    },
+    {
+      "enrich_stop_reason": null,
+      "finished_at": "2026-10-06T18:55:24-0700",
+      "stage_seconds": {
+        "aggregates": 6.97,
+        "group": 24.65,
+        "memo": 16.76,
+        "rank": 2.54,
+        "records": 22.19,
+        "verify": 2205.77
+      },
+      "stages": [
+        "records",
+        "verify",
+        "group",
+        "rank",
+        "aggregates",
+        "memo"
+      ],
+      "wall_clock_s": 2278.98
+    }
+  ],
+  "prompts": {
+    "enrich_v1": "60e05ad9d03f",
+    "group_v1": "3b594bed6ba2",
+    "memo_v1": "f1f824fe4b3e",
+    "verify_v1": "ec6d869e3ca7"
+  },
+  "run_name": "full",
+  "settings": {
+    "batch_size": 50,
+    "budget": 0.5,
+    "downstream_model": "gpt-6-luna",
+    "downstream_provider": "openai",
+    "enrich_effort": "none",
+    "enrich_model": "gpt-6-luna",
+    "enrich_provider": "openai",
+    "finalize": true,
+    "input": "data/spotify_reviews_18months.csv",
+    "max_batches": null,
+    "memo_effort": "low",
+    "name": "full",
+    "phase": "auto",
+    "rpm": 300,
+    "snapshot": null,
+    "time_limit": null,
+    "verify_model": "gemma4:e4b",
+    "verify_provider": "ollama",
+    "verify_sample": null,
+    "workers": 1
+  }
+}

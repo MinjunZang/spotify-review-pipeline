@@ -103,7 +103,7 @@ def main(argv=None):
     manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {"invocations": []}
     manifest.update({"run_name": a.name, "input": str(Path(a.input)), "input_sha256": file_sha(a.input),
                      "code_version": git_rev(),
-                     "prompts": {p: prompt_hash(p) for p in ("enrich_v1", "verify_v1", "group_v1", "memo_v1")},
+                     "prompts": {p: prompt_hash(p) for p in ("enrich_v1", "verify_v1", "group_v2", "memo_v2")},
                      "settings": {k: v for k, v in vars(a).items() if k not in ("stages",)}})
     manifest["invocations"].append({"finished_at": now_iso(), "stages": stages, "stage_seconds": timings,
                                     "wall_clock_s": round(time.time() - t_all, 2),

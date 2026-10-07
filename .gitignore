@@ -17,3 +17,10 @@ local-reference.json
 self-check.json
 dashboard/node_modules/
 dashboard/.vercel/
+
+# large full-run files: published as release assets (evidence-v1) or duplicated in grading/
+outputs/runs/full/records.jsonl.gz
+outputs/runs/full/enriched.csv.gz
+outputs/runs/full/calls.jsonl
+outputs/runs/full/group/membership.csv
+.venv/

@@ -1,0 +1,83 @@
+{
+  "ambiguous_cases": 24,
+  "cases": 50,
+  "confusion_topic_human_rows_model_cols": {
+    "billing": {
+      "billing": 3
+    },
+    "catalog": {
+      "catalog": 4,
+      "other": 1,
+      "usability": 1
+    },
+    "downloads": {
+      "downloads": 1
+    },
+    "other": {
+      "other": 23
+    },
+    "playback": {
+      "playback": 4
+    },
+    "support": {
+      "other": 3
+    },
+    "usability": {
+      "billing": 1,
+      "playback": 1,
+      "usability": 8
+    }
+  },
+  "db": "work/full/pipeline.sqlite",
+  "disagreements": 16,
+  "entities": {
+    "note": "Entities are extracted by code from a fixed term list, so additions are matched terms.",
+    "unsupported_additions": 2
+  },
+  "evidence_quote": {
+    "exact_substring": 1.0,
+    "note": "Support is inspected manually in error_analysis.md; overlap with human quote is per case."
+  },
+  "generated_at": "2026-10-06T18:17:35-0700",
+  "human_label_provenance": {
+    "human_confirmed": 43,
+    "human_edited": 7
+  },
+  "intent_agreement": {
+    "accepting_human_alternatives": 1.0,
+    "strict": 0.92
+  },
+  "label_config": "gpt-6-luna|effort=none|enrich_v1@60e05ad9d03f|schema-v1",
+  "needs_review_as_prediction": {
+    "human_flagged": 12,
+    "model_flagged": 11,
+    "precision": 0.727,
+    "recall": 0.667
+  },
+  "note": "50 cases are a small diagnostic sample, not a population accuracy estimate.",
+  "per_topic_counts_human": {
+    "billing": 3,
+    "catalog": 6,
+    "downloads": 1,
+    "other": 23,
+    "playback": 4,
+    "support": 3,
+    "usability": 10
+  },
+  "sentiment": {
+    "mae": 0.146,
+    "tolerance": 0.5,
+    "within_tolerance": 0.86
+  },
+  "severity": {
+    "accepting_alternatives": 0.88,
+    "exact": 0.82,
+    "mae": 0.3
+  },
+  "tag": "full_run",
+  "topic_agreement": {
+    "accepting_human_alternatives": 0.96,
+    "strict": 0.86
+  },
+  "valid_predictions": 50
+}

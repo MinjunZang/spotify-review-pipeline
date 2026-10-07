@@ -236,8 +236,8 @@ $("rid").addEventListener("change", (e) => trace(e.target.value));
     LABEL_CONFIG = rs.label_config || "";
     const tiles = [
       ["Source reviews", fmt(cov.source_rows), "every original review_id accounted for"],
-      ["Classified", fmt(cov.completed_records), `${(100 * cov.completed_records / cov.source_rows).toFixed(2)}% of rows`],
-      ["Quarantined", fmt(st.quarantined || 0), Object.entries(meta.records_summary.quarantine_reasons || {}).map(([k, v]) => `${fmt(v)} ${k.replace(/_/g, " ")}`).join(" · ") || "none"],
+      ["Classified", fmt(cov.completed_records), `${(100 * cov.completed_records / cov.source_rows).toFixed(3)}% of rows`],
+      ["Quarantined", fmt(st.quarantined || 0), Object.entries(meta.records_summary.quarantine_reasons || {}).map(([k, v]) => `${fmt(v)} ${k.split(";")[0].replace(/_/g, " ")}`).join(" · ") || "none"],
       ["Complaints & cancellations", fmt(meta.complaint_or_cancellation_records), "ranked records"],
       ["Exact-text cache reuse", fmt(meta.records_summary.completed_via_exact_text_cache), "rows labeled without a new call"],
       ["API spend (all stages)", rs.api_cost_usd != null ? "$" + (+rs.api_cost_usd).toFixed(2) : "see README", "from logged usage × dated rates"],

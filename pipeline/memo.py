@@ -21,7 +21,7 @@ from .common import now_iso, write_json
 from .llm import RoleCaller
 from .schema import prompt_hash, prompt_text
 
-PROMPT = "memo_v1"
+PROMPT = "memo_v2"  # v1 output (outputs/runs/*/memo history) did not address the #1 ranked issue
 TOP_ISSUES = 10
 UUID = re.compile(r"\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b")
 CLAIM = re.compile(r"\[([CATK]\d{3})\]")

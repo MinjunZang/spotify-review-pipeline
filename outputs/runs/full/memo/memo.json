@@ -1,0 +1,60 @@
+{
+  "check": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": [
+          "number '13.04%' does not match [T009] = 3.92",
+          "number '17.73%' does not match [T027] = 2.38",
+          "number '4.55%' does not match [T033] = 8.11",
+          "number '12.92%' does not match [T039] = 10.98",
+          "number '1.83%' does not match [T003] = 0.99"
+        ]
+      },
+      {
+        "attempt": 2,
+        "problems": []
+      }
+    ],
+    "passed": true,
+    "problems": []
+  },
+  "cited_claim_ids": [
+    "A003",
+    "A011",
+    "A017",
+    "A021",
+    "A038",
+    "A039",
+    "C001",
+    "C002",
+    "C005",
+    "T003",
+    "T006",
+    "T009",
+    "T012",
+    "T027",
+    "T030",
+    "T033",
+    "T036",
+    "T039",
+    "T042"
+  ],
+  "cited_issue_ids": [
+    "access.login_failure",
+    "billing.premium_paywall",
+    "other.general",
+    "playback.crash_freeze",
+    "playback.playback_stops_or_skips"
+  ],
+  "cited_review_ids": [
+    "8ce24dbe-f1fe-45cd-bd15-dc210575e5c6",
+    "c917e047-2d4b-41c5-ad41-bc9355b6d6e4"
+  ],
+  "generated_at": "2026-10-06T18:57:50-0700",
+  "headline": "Prioritize billing policy clarity and free-tier expectations",
+  "memo_config": "gpt-6-luna|effort=low|memo_v2@35177adbdb8d",
+  "memo_markdown": "## Recommendation\nPrioritize billing/support, starting with `billing.premium_paywall`. This is primarily a deliberate product/pricing policy issue—not a broken feature—so effort should clarify restrictions and premium requirements, and assess whether free-tier limits are communicated and experienced as intended. Do not treat generic dissatisfaction, `other.general`, as an actionable defect.\n\n## Evidence\n`billing.premium_paywall` ranks first, with 49,834 complaints [C001] and severity sum 141,749 [C002]. Billing/support represents 20.79% of complaints [A011]. Its share rose from 3.92% early [T009] to 13.04% late [T012], the clearest growth among the areas considered. Representative reviews: `c917e047-2d4b-41c5-ad41-bc9355b6d6e4` objects to being required to pay; `8ce24dbe-f1fe-45cd-bd15-dc210575e5c6` mentions skip limits.\n\nThe second-ranked issue, `other.general`, has 66,259 complaints [C005], but is broad dissatisfaction without a specific defect and is non-actionable as a product target. Its share rose from 2.38% [T027] to 17.73% [T030], reinforcing the need not to mistake volume for a fixable issue.\n\n## Alternatives considered\nPlayback has higher mean severity, 3.188184 [A017], and 26.54% of its complaints are severity four or higher [A021], but its share fell from 8.11% [T033] to 4.55% [T036]. Its defects, including `playback.playback_stops_or_skips` and `playback.crash_freeze`, merit continued reliability work, but are not the leading next-quarter focus.\n\nAccess is severe (mean 3.864256 [A038]) and growing, from 0.99% [T003] to 1.83% [T006], but represents 3.33% of complaints [A039]. `access.login_failure` deserves targeted remediation, not the top portfolio priority. Usability is also growing, from 10.98% [T039] to 12.92% [T042], but its mean severity is 2.506640 [A003].\n\n## Limitations\nEvidence is from self-selected public reviews, not a customer population. Cancellation records express intent, not observed churn. Trend windows exclude partial first and last months; review classification may leave unresolved boundaries between policy objections and defects.",
+  "pack_sha256": "39c66abb9fd232559b4a7ffedc6e621ba3617b957067018be0a6bdefaf2a4be1",
+  "priority_area": "billing_support"
+}

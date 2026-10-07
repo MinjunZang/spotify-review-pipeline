@@ -1,0 +1,61 @@
+{
+  "check": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": [
+          "number '61,848' does not match [C013] = 19469",
+          "number '3.613809' does not match [C025] = 8299",
+          "number '4.55%' does not match [T033] = 8.11",
+          "number '141,749' does not match [C001] = 49834",
+          "number '13.04%' does not match [T009] = 3.92",
+          "number '12.92%' does not match [T039] = 10.98",
+          "number '1.83%' does not match [T003] = 0.99"
+        ]
+      },
+      {
+        "attempt": 2,
+        "problems": []
+      }
+    ],
+    "passed": true,
+    "problems": []
+  },
+  "cited_claim_ids": [
+    "A021",
+    "A039",
+    "C001",
+    "C002",
+    "C005",
+    "C013",
+    "C014",
+    "C025",
+    "C026",
+    "C027",
+    "T003",
+    "T006",
+    "T009",
+    "T012",
+    "T033",
+    "T036",
+    "T039",
+    "T042"
+  ],
+  "cited_issue_ids": [
+    "billing.premium_paywall",
+    "other.general",
+    "playback.crash_freeze",
+    "playback.playback_stops_or_skips"
+  ],
+  "cited_review_ids": [
+    "b007bb8d-f5e0-4b61-9575-e03bc1f755aa",
+    "cf91b556-b439-4e37-8eb1-0b79608282f5",
+    "d5cf4d6e-34b7-4e12-bf8d-995d4e09503f"
+  ],
+  "generated_at": "2026-10-06T18:56:11-0700",
+  "headline": "Prioritize playback reliability: fix stops/skips and crashes before expanding policy or interface work.",
+  "memo_config": "gpt-6-luna|effort=low|memo_v2@35177adbdb8d",
+  "memo_markdown": "## Recommendation\nPrioritize **playback**, first addressing `playback.playback_stops_or_skips` and `playback.crash_freeze`. These are defects in core playback reliability; focus effort on diagnosing and preventing unintended stops, song changes, freezes, and crashes.\n\n## Evidence\n`playback.playback_stops_or_skips` has 19,469 complaints [C013] and severity sum 61,848 [C014]. `playback.crash_freeze` has 8,299 complaints [C025], severity sum 29,991 [C026], and mean severity 3.613809 [C027]. Playback’s sev4+ share is 26.54% [A021], indicating a high-severity concentration. Playback’s share of reviews shrank from 8.11% early [T033] to 4.55% late [T036], so this is not a growing-share area; its severity still supports focused reliability work. Representative reports: `cf91b556-b439-4e37-8eb1-0b79608282f5`, `d5cf4d6e-34b7-4e12-bf8d-995d4e09503f`, and `b007bb8d-f5e0-4b61-9575-e03bc1f755aa`.\n\n## Alternatives considered\nThe leading issue is `billing.premium_paywall`, with 49,834 complaints [C001] and severity sum 141,749 [C002]. Its scale makes it important, but it principally reflects a deliberate free-tier restriction and subscription policy, not a playback defect; I would address it through policy and expectation-setting work rather than make it the next quarter’s primary reliability investment. The second-ranked `other.general` issue has 66,259 complaints [C005], but generic privacy/data concerns are non-actionable context here, not a product area. Billing/support’s share grew from 3.92% [T009] to 13.04% [T012], and usability’s from 10.98% [T039] to 12.92% [T042]; both merit attention, but the leading usability concerns include ads and interface changes, which call for policy/design decisions rather than fixing broken playback. Access also grew, from 0.99% [T003] to 1.83% [T006], but has a smaller overall complaint share of 3.33% [A039].\n\n## Limitations\nThese are self-selected public reviews, not a customer-population measure. Cancellation records express intent, not observed churn. Trend windows exclude partial first and last months. Review classifications may leave defects and policy complaints unresolved or mixed.",
+  "pack_sha256": "65383fbb00e508999f86f00d062e7652bb48bdc2955e47429a32218583f5e097",
+  "priority_area": "playback"
+}
